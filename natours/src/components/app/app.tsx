@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Global, Header, HeaderPrimary, HeaderPrimaryMain, HeaderPrimarySub, Logo, LogoContainer, TextBox } from './styled';
+import { Global, Header, HeaderPrimary, HeaderPrimaryMain, HeaderPrimarySub, Logo, LogoContainer, TextBox, WhiteButton } from './styled';
 
 export const App = () => (
   <React.Fragment>
@@ -24,6 +24,13 @@ export const App = () => (
             is where life happens
           </HeaderPrimarySub>
         </HeaderPrimary>
+
+        <WhiteButton
+          href="#"
+          // white
+        >
+          Discover our tours
+        </WhiteButton>
       </TextBox>
     </Header>
   </React.Fragment>

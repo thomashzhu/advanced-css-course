@@ -26,8 +26,8 @@ export const App = () => (
         </HeaderPrimary>
 
         <WhiteButton
+          animated
           href="#"
-          // white
         >
           Discover our tours
         </WhiteButton>

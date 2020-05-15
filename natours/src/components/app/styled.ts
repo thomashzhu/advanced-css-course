@@ -3,8 +3,8 @@ import styled, { createGlobalStyle } from "styled-components";
 
 import hero from '../../assets/hero.jpg';
 import { colors } from "../../res/colors";
-import { moveFrom } from './animations';
-import { TranslateXOrigin } from '../../res/types';
+import { moveHorizontally, moveVertically } from './animations';
+import { TranslateXOrigin, TranslateYOrigin } from '../../res/types';
 
 export const Global = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900');
@@ -31,6 +31,7 @@ export const Button = styled.a`
     border-radius: 100px;
     display: inline-block;
     padding: 15px 40px;
+    position: relative;
     text-decoration: none;
     text-transform: uppercase;
     transition: all 0.2s;
@@ -39,17 +40,41 @@ export const Button = styled.a`
   &:hover {
     box-shadow: 0 10px 20px ${Color('black').alpha(0.2).toString()};
     transform: translateY(-3px);
+
+    &::after {
+      opacity: 0;
+      transform: scaleX(1.4) scaleY(1.6);
+    }
   }
 
   &:active {
     box-shadow: 0 5px 10px ${Color('black').alpha(0.2).toString()};
     transform: translateY(-1px);
   }
+
+  &::after {
+    border-radius: 100px;
+    content: "";
+    display: inline-block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: all 0.4s;
+    width: 100%;
+    z-index: -1;
+  }
 `
 
 export const WhiteButton = styled(Button)`
+  animation: ${(props: { animated: boolean }) => props.animated ? moveVertically(TranslateYOrigin.Bottom) : 'none'} 0.5s ease-out 0.75s;
+  animation-fill-mode: backwards;
   background-color: white;
   color: #777;
+
+  &::after {
+    background-color: white;
+  }
 `
 
 export const Header = styled.header`
@@ -77,7 +102,7 @@ export const HeaderPrimary = styled.h1`
 // If animation is blurry, see https://stackoverflow.com/questions/14677490/blurry-text-after-using-css-transform-scale-in-chrome
 
 export const HeaderPrimaryMain = styled.span`
-  animation: ${moveFrom(TranslateXOrigin.Left)} 1s ease-out;
+  animation: ${moveHorizontally(TranslateXOrigin.Left)} 1s ease-out;
   display: block;
   font-size: 60px;
   font-weight: 400;
@@ -85,7 +110,7 @@ export const HeaderPrimaryMain = styled.span`
 `
 
 export const HeaderPrimarySub = styled.span`
-animation: ${moveFrom(TranslateXOrigin.Right)} 1s ease-out;
+animation: ${moveHorizontally(TranslateXOrigin.Right)} 1s ease-out;
   display: block;
   font-size: 20px;
   font-weight: 700;

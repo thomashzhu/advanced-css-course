@@ -5,11 +5,11 @@ import { TranslateXOrigin, TranslateYOrigin } from "../../res/types";
 export const moveHorizontally = (origin: TranslateXOrigin) => keyframes`
   0% {
     opacity: 0;
-    transform: translateX(${`${ origin === TranslateXOrigin.Left ? -100 : 100}px`});
+    transform: translateX(${`${ origin === TranslateXOrigin.Left ? -10 : 10}rem`});
   }
 
   80% {
-    transform: translate(${`${ origin === TranslateXOrigin.Left ? 10 : -10}px`});
+    transform: translate(${`${ origin === TranslateXOrigin.Left ? 1 : -1}rem`});
   }
 
   100% {
@@ -21,7 +21,7 @@ export const moveHorizontally = (origin: TranslateXOrigin) => keyframes`
 export const moveVertically = (origin: TranslateYOrigin) => keyframes`
   0% {
     opacity: 0;
-    transform: translateY(${`${ origin === TranslateYOrigin.Bottom ? 30 : -30}px`});
+    transform: translateY(${`${ origin === TranslateYOrigin.Bottom ? 3 : -3}rem`});
   }
 
   100% {

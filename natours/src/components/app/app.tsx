@@ -1,37 +1,40 @@
 import React from 'react';
 
-import { Global, Header, HeaderPrimary, HeaderPrimaryMain, HeaderPrimarySub, Logo, LogoContainer, TextBox, WhiteButton } from './styled';
+import { Button } from '../Button';
+import { Global } from '../Global';
+import { Header } from '../Header';
+import { HeaderPrimary } from '../HeaderPrimary';
 
 export const App = () => (
   <React.Fragment>
     <Global />
 
-    <Header>
-      <LogoContainer>
-        <Logo
+    <Header.Container>
+      <Header.LogoBox>
+        <Header.Logo
           alt="Logo"
           src={require('../../assets/logo-white.png')}
         />
-      </LogoContainer>
+      </Header.LogoBox>
 
-      <TextBox>
-        <HeaderPrimary>
-          <HeaderPrimaryMain>
+      <Header.TextBox>
+        <HeaderPrimary.Container>
+          <HeaderPrimary.Main>
             Outdoor
-          </HeaderPrimaryMain>
+          </HeaderPrimary.Main>
 
-          <HeaderPrimarySub>
+          <HeaderPrimary.Sub>
             is where life happens
-          </HeaderPrimarySub>
-        </HeaderPrimary>
+          </HeaderPrimary.Sub>
+        </HeaderPrimary.Container>
 
-        <WhiteButton
+        <Button.White
           animated
           href="#"
         >
           Discover our tours
-        </WhiteButton>
-      </TextBox>
-    </Header>
+        </Button.White>
+      </Header.TextBox>
+    </Header.Container>
   </React.Fragment>
 );

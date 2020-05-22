@@ -1,6 +1,6 @@
 import { keyframes } from "styled-components";
 
-import { TranslateXOrigin, TranslateYOrigin } from "../../res/types";
+import { TranslateXOrigin, TranslateYOrigin } from "./types";
 
 export const moveHorizontally = (origin: TranslateXOrigin) => keyframes`
   0% {

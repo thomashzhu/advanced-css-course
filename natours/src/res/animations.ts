@@ -1,6 +1,6 @@
-import { keyframes } from "styled-components";
+import { keyframes } from '@emotion/core';
 
-import { TranslateXOrigin, TranslateYOrigin } from "./types";
+import { TranslateXOrigin, TranslateYOrigin } from './types';
 
 export const moveHorizontally = (origin: TranslateXOrigin) => keyframes`
   0% {

@@ -14,11 +14,6 @@
     "forceConsistentCasingInFileNames": true,
     "module": "esnext",
     "moduleResolution": "node",
-    "plugins": [
-      {
-        "name": "typescript-plugin-styled-components"
-      }
-    ],
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,

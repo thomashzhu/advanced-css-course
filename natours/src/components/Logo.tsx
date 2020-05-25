@@ -13,12 +13,12 @@ export const Logo: React.FC = () => (
 )
 
 const styles = {
-  container: css`
-    left: 4rem;
-    position: absolute;
-    top: 4rem;
-  `,
-  logo: css`
-    height: 3.5rem;
-  `,
+  container: css({
+    left: '4rem',
+    position: 'absolute',
+    top: '4rem',
+  }),
+  logo: css({
+    height: '3.5rem',
+  }),
 };

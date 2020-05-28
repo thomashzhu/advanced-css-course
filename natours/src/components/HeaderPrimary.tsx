@@ -3,6 +3,7 @@ import { css, jsx } from '@emotion/core';
 import React from 'react';
 
 import { moveHorizontally } from '../res/animations';
+import { colors } from '../res/colors';
 import { TranslateXOrigin } from '../res/types';
 
 interface IProps {
@@ -26,7 +27,7 @@ export const HeaderPrimary: React.FC<IProps> = ({
 
 const styles = {
   container: css({
-    color: 'white',
+    color: colors.white,
     marginBottom: '6rem',
     textAlign: 'center',
     textTransform: 'uppercase',

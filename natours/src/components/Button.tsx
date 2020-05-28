@@ -4,6 +4,7 @@ import { css, jsx } from '@emotion/core';
 import React from 'react';
 
 import { moveVertically } from '../res/animations';
+import { colors } from '../res/colors';
 import { TranslateYOrigin } from '../res/types';
 
 interface IProps extends React.HTMLProps<HTMLAnchorElement> {
@@ -34,7 +35,7 @@ const styles = {
     },
 
     '&:hover': {
-      boxShadow: `0 1rem 2rem ${Color('black').alpha(0.2).toString()}`,
+      boxShadow: `0 1rem 2rem ${Color(colors.black).alpha(0.2)}`,
       transform: 'translateY(-.3rem)',
 
       '&::after': {
@@ -44,7 +45,7 @@ const styles = {
     },
 
     '&:active': {
-      boxShadow: `0 .5rem 1rem ${Color('black').alpha(0.2).toString()}`,
+      boxShadow: `0 .5rem 1rem ${Color(colors.black).alpha(0.2)}`,
       transform: 'translateY(-.1rem)',
     },
 
@@ -64,11 +65,11 @@ const styles = {
   white: css({
     animation: `${moveVertically(TranslateYOrigin.Bottom)} .5s ease-out .75s`,
     animationFillMode: 'backwards',
-    backgroundColor: 'white',
+    backgroundColor: colors.white,
     color: '#777',
 
     '&::after': {
-      backgroundColor: 'white',
+      backgroundColor: colors.white,
     }
   }),
 }

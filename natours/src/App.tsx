@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { About } from './components/About';
 import { Button } from './components/Button';
 import { GlobalStyles } from './components/GlobalStyles';
 import { Header } from './components/Header';
@@ -28,5 +29,7 @@ export const App = () => (
         </Button>
       </TextBox>
     </Header>
+
+    <About />
   </React.Fragment>
 );

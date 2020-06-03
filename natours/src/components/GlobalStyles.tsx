@@ -1,6 +1,8 @@
 import { css, Global } from '@emotion/core';
 import React from 'react';
 
+import { defaultFontSize } from '../res/styles';
+
 export const GlobalStyles = () => (
   <Global styles={styles.global} />
 );
@@ -23,7 +25,7 @@ const styles = {
       boxSizing: 'border-box',
       color: '#777',
       fontFamily: 'Lato, sans-serif',
-      fontSize: '1.6rem',
+      fontSize: defaultFontSize,
       fontWeight: 400,
       lineHeight: 1.7,
       padding: '3rem',

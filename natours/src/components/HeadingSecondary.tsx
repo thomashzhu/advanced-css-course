@@ -3,27 +3,15 @@ import { css, jsx } from '@emotion/core';
 import Color from 'color';
 
 import { colors } from '../res/colors';
-import { centerText } from '../res/styles';
+import { centerText, marginBottom } from '../res/styles';
 
-interface Props {
-  marginBottom: number;
-}
-
-export const HeadingSecondary: React.FC<Props> = ({
-  marginBottom,
-}) => {
-  const style = css({
-    marginBottom: `${marginBottom}rem`,
-  });
-
-  return (
-    <div css={centerText}>
-      <h2 css={[styles.headingSecondary, style]}>
-        Exciting tours for adventurous people
-      </h2>
-    </div>
-  );
-};
+export const HeadingSecondary: React.FC = () =>  (
+  <div css={centerText}>
+    <h2 css={[styles.headingSecondary, marginBottom(8)]}>
+      Exciting tours for adventurous people
+    </h2>
+  </div>
+);
 
 const styles = {
   headingSecondary: css({

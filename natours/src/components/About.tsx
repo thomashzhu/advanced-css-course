@@ -6,16 +6,26 @@ import Color from 'color';
 
 import { row } from '../res/styles';
 import { HeadingSecondary } from './HeadingSecondary';
+import { HeadingTertiary } from './HeadingTertiary';
+import { ButtonText } from './ButtonText';
 
 export const About = () => (
   <section css={styles.about}>
-    <HeadingSecondary
-      marginBottom={8}
-    />
+    <HeadingSecondary />
 
     <div css={row}>
       <div className="col-1-of-2">
-        text
+        <HeadingTertiary heading="You're going to fall in love with nature">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit reprehenderit accusamus eum necessitatibus ducimus laboriosam perferendis saepe, quo distinctio beatae delectus consequuntur nesciunt harum mollitia! Dignissimos unde saepe corporis cupiditate?
+        </HeadingTertiary>
+
+        <HeadingTertiary heading="Live adventures like you never have before">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit reprehenderit accusamus eum necessitatibus ducimus laboriosam perferendis saepe, quo distinctio beatae delectus consequuntur nesciunt harum mollitia! Dignissimos unde saepe corporis cupiditate?
+        </HeadingTertiary>
+
+        <ButtonText href="#">
+          Learn more &rarr;
+        </ButtonText>
       </div>
 
       <div className="col-1-of-2">

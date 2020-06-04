@@ -19,8 +19,8 @@ const styles = {
     backgroundImage:
       `linear-gradient(
         to right bottom,
-        ${Color(colors.greenLight).alpha(0.8).toString()},
-        ${Color(colors.greenDark).alpha(0.8).toString()}
+        ${Color(colors.greenLight).alpha(0.8)},
+        ${Color(colors.greenDark).alpha(0.8)}
       ),
       url(${hero})`,
     backgroundPosition: 'top',

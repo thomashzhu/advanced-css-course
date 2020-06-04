@@ -31,7 +31,7 @@ const styles = {
     transition: 'all .2s',
 
     '&:hover': {
-      textShadow: `.5rem 1rem 2rem rgba(${Color(colors.black).alpha(.2)})`,
+      textShadow: `.5rem 1rem 2rem ${Color(colors.black).alpha(0.2)}`,
       transform: 'skewY(2deg) skewX(15deg) scale(1.1)',
     },
   }),

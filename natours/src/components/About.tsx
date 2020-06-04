@@ -8,6 +8,7 @@ import { row } from '../res/styles';
 import { HeadingSecondary } from './HeadingSecondary';
 import { HeadingTertiary } from './HeadingTertiary';
 import { ButtonText } from './ButtonText';
+import { Composition } from './Composition';
 
 export const About = () => (
   <section css={styles.about}>
@@ -29,7 +30,7 @@ export const About = () => (
       </div>
 
       <div className="col-1-of-2">
-        image
+        <Composition />
       </div>
     </div>
   </section>
@@ -38,7 +39,7 @@ export const About = () => (
 const styles = {
   about: css({
     backgroundColor: colors.grayLight1,
-    padding: '25rem 0',
+    padding: '25vh 0',
     marginTop: '-20vh',
   }),
   center: css({
@@ -61,7 +62,7 @@ const styles = {
     transition: 'all .2s',
 
     '&:hover': {
-      textShadow: `.5rem 1rem 2rem rgba(${Color(colors.black).alpha(.2)})`,
+      textShadow: `.5rem 1rem 2rem ${Color(colors.black).alpha(0.2)}`,
       transform: 'skewY(2deg) skewX(15deg) scale(1.1)',
     },
   }),

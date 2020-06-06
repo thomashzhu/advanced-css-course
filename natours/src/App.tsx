@@ -2,6 +2,7 @@ import React from 'react';
 
 import { About } from './components/About';
 import { Button } from './components/Button';
+import { Features } from './components/Features';
 import { GlobalStyles } from './components/GlobalStyles';
 import { Header } from './components/Header';
 import { HeaderPrimary } from './components/HeaderPrimary';
@@ -31,5 +32,7 @@ export const App = () => (
     </Header>
 
     <About />
+
+    <Features />
   </React.Fragment>
 );

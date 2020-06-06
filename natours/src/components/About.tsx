@@ -46,8 +46,7 @@ const styles = {
     textAlign: 'center',
   }),
   headingSecondary: css({
-    '-webkit-background-clip': 'text',
-    backgroundClip: 'text',
+    WebkitBackgroundClip: 'text',
     backgroundImage: `linear-gradient(
       to right,
       ${colors.greenLight},

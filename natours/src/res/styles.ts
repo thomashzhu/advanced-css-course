@@ -30,9 +30,17 @@ export const row = css({
 
   '[class^="col-"]': {
     float: 'left',
+
+    '&:not(:last-child)': {
+      marginRight: gutterHorizontal,
+    }
   },
 
   '.col-1-of-2': {
     width: `calc((100% - ${gutterHorizontal}) / 2)`
+  },
+
+  '.col-1-of-4': {
+    width: `calc((100% - 3 * ${gutterHorizontal}) / 4)`
   }
 });

@@ -14,6 +14,15 @@ export const marginBottom = (size: number) => css({
   marginBottom: `${size}rem`,
 });
 
+export const oneOf = (size: number) => css({
+  float: 'left',
+  width: `calc((100% - ${size - 1} * ${gutterHorizontal}) / ${size})`,
+
+  '&:not(:last-child)': {
+    marginRight: gutterHorizontal,
+  },
+});
+
 export const row = css({
   margin: '0 auto',
   maxWidth: gridWidth,
@@ -27,20 +36,4 @@ export const row = css({
     display: 'table',
     clear: 'both',
   },
-
-  '[class^="col-"]': {
-    float: 'left',
-
-    '&:not(:last-child)': {
-      marginRight: gutterHorizontal,
-    }
-  },
-
-  '.col-1-of-2': {
-    width: `calc((100% - ${gutterHorizontal}) / 2)`
-  },
-
-  '.col-1-of-4': {
-    width: `calc((100% - 3 * ${gutterHorizontal}) / 4)`
-  }
 });

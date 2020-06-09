@@ -4,7 +4,7 @@ import { css, jsx } from '@emotion/core';
 import { colors } from '../res/colors';
 import Color from 'color';
 
-import { row } from '../res/styles';
+import { row, oneOf } from '../res/styles';
 import { HeadingSecondary } from './HeadingSecondary';
 import { HeadingTertiary } from './HeadingTertiary';
 import { ButtonText } from './ButtonText';
@@ -15,7 +15,7 @@ export const About = () => (
     <HeadingSecondary />
 
     <div css={row}>
-      <div className="col-1-of-2">
+      <div css={oneOf(2)}>
         <HeadingTertiary heading="You're going to fall in love with nature">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit reprehenderit accusamus eum necessitatibus ducimus laboriosam perferendis saepe, quo distinctio beatae delectus consequuntur nesciunt harum mollitia! Dignissimos unde saepe corporis cupiditate?
         </HeadingTertiary>
@@ -29,7 +29,7 @@ export const About = () => (
         </ButtonText>
       </div>
 
-      <div className="col-1-of-2">
+      <div css={oneOf(2)}>
         <Composition />
       </div>
     </div>

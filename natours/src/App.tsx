@@ -7,6 +7,7 @@ import { GlobalStyles } from './components/GlobalStyles';
 import { Header } from './components/Header';
 import { HeaderPrimary } from './components/HeaderPrimary';
 import { Logo } from './components/Logo';
+import { Tours } from './components/Tours';
 import { TextBox } from './components/TextBox';
 
 export const App = () => (
@@ -34,5 +35,7 @@ export const App = () => (
     <About />
 
     <Features />
+
+    <Tours />
   </React.Fragment>
 );

@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, css } from '@emotion/core'
+import { jsx, css, SerializedStyles } from '@emotion/core'
 import Color from 'color';
 import React from 'react';
 
@@ -7,19 +7,16 @@ import { colors } from '../res/colors';
 import { HeadingTertiary } from './HeadingTertiary';
 
 interface Props {
-  containerClassName: string;
   heading: string;
   iconClassName: string;
+  style: SerializedStyles;
   text: string;
 }
 
 export const FeatureCard: React.FC<Props> = ({
-  containerClassName, iconClassName, heading, text,
+  iconClassName, heading, style, text,
 }) => (
-  <div
-    className={containerClassName}
-    css={styles.container}
-  >
+  <div css={[styles.container, style]}>
     <i
       className={iconClassName}
       css={styles.icon}

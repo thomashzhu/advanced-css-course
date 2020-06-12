@@ -37,32 +37,32 @@ export const About = () => (
 );
 
 const styles = {
-  about: css({
-    backgroundColor: colors.grayLight1,
-    padding: '25vh 0',
-    marginTop: '-20vh',
-  }),
-  center: css({
-    textAlign: 'center',
-  }),
-  headingSecondary: css({
-    WebkitBackgroundClip: 'text',
-    backgroundImage: `linear-gradient(
+  about: css`
+    background-color: ${colors.grayLight1};
+    padding: 25vh 0;
+    margin-top: -20vh;
+  `,
+  center: css`
+    text-align: center;
+  `,
+  headingSecondary: css`
+    -webkit-background-clip: text;
+    background-image: linear-gradient(
       to right,
       ${colors.greenLight},
       ${colors.greenDark}
-    )`,
-    color: 'transparent',
-    display: 'inline-block',
-    fontSize: '3.5rem',
-    fontWeight: 700,
-    letterSpacing: '.2rem',
-    textTransform: 'uppercase',
-    transition: 'all .2s',
+    );
+    color: transparent;
+    display: inline-block;
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: .2rem;
+    text-transform: uppercase;
+    transition: all .2s;
 
-    '&:hover': {
-      textShadow: `.5rem 1rem 2rem ${Color(colors.black).alpha(0.2)}`,
-      transform: 'skewY(2deg) skewX(15deg) scale(1.1)',
-    },
-  }),
+    &:hover {
+      text-shadow: .5rem 1rem 2rem ${Color(colors.black).alpha(0.2).toString()};
+      transform: skewY(2deg) skewX(15deg) scale(1.1);
+    };
+  `,
 };

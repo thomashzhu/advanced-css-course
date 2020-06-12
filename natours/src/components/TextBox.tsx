@@ -9,11 +9,11 @@ export const TextBox: React.FC = ({ children }) => (
 )
 
 const styles = {
-  container: css({
-    left: '50%',
-    position: 'absolute',
-    top: '40%',
-    textAlign: 'center',
-    transform: 'translate(-50%, -50%)',
-  }),
+  container: css`
+    left: 50%;
+    position: absolute;
+    top: 40%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+  `,
 };

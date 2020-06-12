@@ -45,21 +45,21 @@ export const Features: React.FC = () => (
 );
 
 const styles = {
-  container: css({
-    backgroundImage:
-      `linear-gradient(
+  container: css`
+    background-image:
+      linear-gradient(
         to right bottom,
-        ${Color(colors.greenLight).alpha(0.8)},
-        ${Color(colors.greenDark).alpha(0.8)}
+        ${Color(colors.greenLight).alpha(0.8).toString()},
+        ${Color(colors.greenDark).alpha(0.8).toString()}
       ),
-      url(${nat4})`,
-    backgroundSize: 'cover',
-    marginTop: '-15rem',
-    padding: '20rem 0',
-    transform: `skewY(-${SKEW_DEGREE}deg)`,
+      url(${nat4});
+    background-size: cover;
+    margin-top: -15rem;
+    padding: 20rem 0;
+    transform: skewY(-${SKEW_DEGREE}deg);
 
-    '& > *': {
-      transform: `skewY(${SKEW_DEGREE}deg)`,
-    },
-  }),
+    & > * {
+      transform: skewY(${SKEW_DEGREE}deg);
+    };
+  `,
 };

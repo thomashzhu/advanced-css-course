@@ -35,28 +35,29 @@ export const Composition: React.FC = () => (
 );
 
 const styles = {
-  container: css({
-    position: 'relative',
+  container: css`
+    position: relative;
 
-    '&:hover img:not(:hover)': {
-      transform: 'scale(.95)',
-    },
-  }),
-  photo: (position: Partial<Position>) => css({
-    ...position,
-    borderRadius: '2px',
-    boxShadow: `0 1.5rem 4rem ${Color(colors.black).alpha(0.4)}`,
-    outlineOffset: '2rem',
-    position: 'absolute',
-    transition: 'transform .2s',
-    width: '55%',
-    zIndex: 10,
+    &:hover img:not(:hover) {
+      transform: scale(.95);
+    };
+  `,
+  photo: (position: Partial<Position>) => css`
+    ${position};
 
-    '&:hover': {
-      boxShadow: `0 2.5rem 4rem ${Color(colors.black).alpha(0.5)}`,
-      outline: `1.5rem solid ${colors.greenMedium}`,
-      transform: 'scale(1.05) translateY(-.5rem)',
-      zIndex: 20,
-    },
-  }),
+    border-radius: 2px;
+    box-shadow: 0 1.5rem 4rem ${Color(colors.black).alpha(0.4).toString()};
+    outline-offset: 2rem;
+    position: absolute;
+    transition: transform .2s;
+    width: 55%;
+    z-index: 10;
+
+    &:hover {
+      box-shadow: 0 2.5rem 4rem ${Color(colors.black).alpha(0.5).toString()};
+      outline: 1.5rem solid ${colors.greenMedium};
+      transform: scale(1.05) translateY(-.5rem);
+      z-index: 20;
+    };
+  `,
 };

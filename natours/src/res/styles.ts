@@ -6,34 +6,34 @@ export const gutterHorizontal = '6rem';
 export const gutterVertical = '8rem';
 export const gridWidth = '114rem';
 
-export const centerText = css({
-  textAlign: 'center',
-});
+export const centerText = css`
+  text-align: center;
+`;
 
-export const marginBottom = (size: number) => css({
-  marginBottom: `${size}rem`,
-});
+export const marginBottom = (size: number) => css`
+  margin-bottom: ${size}rem;
+`;
 
-export const oneOf = (size: number) => css({
-  float: 'left',
-  width: `calc((100% - ${size - 1} * ${gutterHorizontal}) / ${size})`,
+export const oneOf = (size: number) => css`
+  float: left;
+  width: calc((100% - ${size - 1} * ${gutterHorizontal}) / ${size});
 
-  '&:not(:last-child)': {
-    marginRight: gutterHorizontal,
-  },
-});
+  &:not(:last-child) {
+    margin-right: ${gutterHorizontal};
+  };
+`;
 
-export const row = css({
-  margin: '0 auto',
-  maxWidth: gridWidth,
+export const row = css`
+  margin: 0 auto;
+  max-width: ${gridWidth};
 
-  '&:not(:last-child)': {
-    marginBottom: gutterVertical,
-  },
+  &:not(:last-child) {
+    margin-bottom: ${gutterVertical};
+  };
 
-  '&:after': {
-    content: '""',
-    display: 'table',
-    clear: 'both',
-  },
-});
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  };
+`;

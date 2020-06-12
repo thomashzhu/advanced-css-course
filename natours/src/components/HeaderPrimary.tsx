@@ -26,24 +26,24 @@ export const HeaderPrimary: React.FC<IProps> = ({
 )
 
 const styles = {
-  container: css({
-    color: colors.white,
-    marginBottom: '6rem',
-    textAlign: 'center',
-    textTransform: 'uppercase',
-  }),
-  main: css({
-    animation: `${moveHorizontally(TranslateXOrigin.Left)} 1s ease-out`,
-    display: 'block',
-    fontSize: '6rem',
-    fontWeight: 400,
-    letterSpacing: '3.5rem',
-  }),
-  sub: css({
-    animation: `${moveHorizontally(TranslateXOrigin.Right)} 1s ease-out`,
-    display: 'block',
-    fontSize: '2rem',
-    fontWeight: 700,
-    letterSpacing: '1.75rem',
-  }),
+  container: css`
+    color: ${colors.white};
+    margin-bottom: 6rem;
+    text-align: center;
+    text-transform: uppercase;
+  `,
+  main: css`
+    animation: ${moveHorizontally(TranslateXOrigin.Left)} 1s ease-out;
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+  `,
+  sub: css`
+    animation: ${moveHorizontally(TranslateXOrigin.Right)} 1s ease-out;
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+  `,
 };

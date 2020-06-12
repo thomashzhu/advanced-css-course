@@ -23,16 +23,16 @@ export const HeadingTertiary: React.FC<Props> = ({
 );
 
 const styles = {
-  container: css({
-    fontSize: defaultFontSize,
-    fontWeight: 700,
-    textTransform: 'uppercase',
-  }),
-  paragraph: css({
-    fontSize: defaultFontSize,
+  container: css`
+    font-size: ${defaultFontSize};
+    font-weight: 700;
+    text-transform: uppercase;
+  `,
+  paragraph: css`
+    font-size: ${defaultFontSize};
 
-    '&:not(:last-child)': {
-      marginBottom: '3rem',
-    },
-  }),
+    &:not(:last-child) {
+      margin-bottom: 3rem;
+    };
+  `,
 };

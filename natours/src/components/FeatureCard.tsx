@@ -30,28 +30,29 @@ export const FeatureCard: React.FC<Props> = ({
 );
 
 const styles = {
-  container: css({
-    backgroundColor: `${Color(colors.white).alpha(0.8)}`,
-    borderRadius: '3px',
-    boxShadow: `0 1.5rem 4rem ${Color(colors.black).alpha(0.15)}`,
-    fontSize: '1.5rem',
-    padding: '2.5rem',
-    textAlign: 'center',
-    transition: 'transform .3s',
+  container: css`
+    background-color: ${Color(colors.white).alpha(0.8).toString()};
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem ${Color(colors.black).alpha(0.15).toString()};
+    font-size: 1.5rem;
+    padding: 2.5rem;
+    text-align: center;
+    transition: transform .3s;
 
-    '&:hover': {
-      transform: 'scale(1.03) translateY(-1.5rem)',
-    },
-  }),
-  icon: css({
-    WebkitBackgroundClip: 'text',
-    backgroundImage: `linear-gradient(
+    &:hover {
+      transform: scale(1.03) translateY(-1.5rem);
+    };
+  `,
+  icon: css`
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-image: linear-gradient(
       to right,
       ${colors.greenLight},
       ${colors.greenDark}
-    )`,
-    color: 'transparent',
-    display: 'inline-block',
-    fontSize: '6rem',
-  }),
+    );
+    color: transparent;
+    display: inline-block;
+    font-size: 6rem;
+  `,
 };

@@ -15,18 +15,18 @@ export const Header: React.FC = ({ children }) => (
 )
 
 const styles = {
-  header: css({
-    backgroundImage:
-      `linear-gradient(
+  header: css`
+    background-image:
+      linear-gradient(
         to right bottom,
-        ${Color(colors.greenLight).alpha(0.8)},
-        ${Color(colors.greenDark).alpha(0.8)}
+        ${Color(colors.greenLight).alpha(0.8).toString()},
+        ${Color(colors.greenDark).alpha(0.8).toString()}
       ),
-      url(${hero})`,
-    backgroundPosition: 'top',
-    backgroundSize: 'cover',
-    clipPath: 'polygon(0 0, 100% 0, 100% 75vh, 0 100%)',
-    height: '95vh',
-    position: 'relative',
-  })
+      url(${hero});
+    background-position: top;
+    background-size: cover;
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    height: 95vh;
+    position: relative;
+  `,
 };

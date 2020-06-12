@@ -59,9 +59,9 @@ export const Tours: React.FC<Props> = () => (
 );
 
 const styles = {
-  container: css({
-    backgroundColor: colors.grayLight1,
-    marginTop: '-16rem',
-    padding: '40rem 0 50rem 0',
-  }),
+  container: css`
+    background-color: ${colors.grayLight1};
+    margin-top: -16rem;
+    padding: 40rem 0 50rem 0;
+  `,
 };

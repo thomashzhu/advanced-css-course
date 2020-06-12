@@ -8,27 +8,29 @@ export const GlobalStyles = () => (
 );
 
 const styles = {
-  global: css({
-    '@import': `url('https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900')`,
+  global: css`
+    @import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900');
 
-    '*, *::after, *::before': {
-      boxSizing: 'inherit',
-      margin: 0,
-      padding: 0,
-    },
+    *,
+    *::after,
+    *::before {
+      box-sizing: inherit;
+      margin: 0;
+      padding: 0;
+    };
 
-    html: {
-      fontSize: '62.5%',
-    },
+    html {
+      font-size: 62.5%;
+    };
 
-    body: {
-      boxSizing: 'border-box',
-      color: '#777',
-      fontFamily: 'Lato, sans-serif',
-      fontSize: defaultFontSize,
-      fontWeight: 400,
-      lineHeight: 1.7,
-      padding: '3rem',
-    }
-  }),
+    body {
+      box-sizing: border-box;
+      color: #777;
+      font-family: Lato, sans-serif;
+      font-size: ${defaultFontSize};
+      font-weight: 400;
+      line-height: 1.7;
+      padding: 3rem;
+    };
+  `,
 };

@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import { jsx, css, SerializedStyles } from '@emotion/core'
-import Color from 'color';
 import React from 'react';
 
 import { colors } from '../res/colors';
+import { rgba } from '../utils/rgba';
 import { HeadingTertiary } from './HeadingTertiary';
 
 interface Props {
@@ -31,9 +31,9 @@ export const FeatureCard: React.FC<Props> = ({
 
 const styles = {
   container: css`
-    background-color: ${Color(colors.white).alpha(0.8).toString()};
+    background-color: ${rgba(colors.white, 0.8)};
     border-radius: 3px;
-    box-shadow: 0 1.5rem 4rem ${Color(colors.black).alpha(0.15).toString()};
+    box-shadow: 0 1.5rem 4rem ${rgba(colors.black, 0.15)};
     font-size: 1.5rem;
     padding: 2.5rem;
     text-align: center;

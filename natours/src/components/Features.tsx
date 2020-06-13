@@ -1,11 +1,10 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
-import Color from 'color';
 import React from 'react';
 
-import nat4 from '../assets/nat-4.jpg';
 import { colors } from '../res/colors';
 import { row, oneOf } from '../res/styles';
+import { rgba } from '../utils/rgba';
 import { FeatureCard } from './FeatureCard';
 
 const SKEW_DEGREE = 7;
@@ -49,10 +48,10 @@ const styles = {
     background-image:
       linear-gradient(
         to right bottom,
-        ${Color(colors.greenLight).alpha(0.8).toString()},
-        ${Color(colors.greenDark).alpha(0.8).toString()}
+        ${rgba(colors.greenLight, 0.8)},
+        ${rgba(colors.greenDark, 0.8)}
       ),
-      url(${nat4});
+      url(${require('../assets/nat-4.jpg')});
     background-size: cover;
     margin-top: -15rem;
     padding: 20rem 0;

@@ -1,11 +1,11 @@
 /** @jsx jsx */
-import Color from 'color';
 import { css, jsx } from '@emotion/core';
 import React from 'react';
 
 import { moveVertically } from '../res/animations';
 import { colors } from '../res/colors';
 import { TranslateYOrigin } from '../res/types';
+import { rgba } from '../utils/rgba';
 
 interface IProps extends React.HTMLProps<HTMLAnchorElement> {
   backgroundColor: string;
@@ -42,7 +42,7 @@ const styles = {
     };
 
     &:hover {
-      box-shadow: 0 1rem 2rem ${Color(colors.black).alpha(0.2).toString()};
+      box-shadow: 0 1rem 2rem ${rgba(colors.black, 0.2)};
       transform: translateY(-.3rem);
 
       &::after {
@@ -52,7 +52,7 @@ const styles = {
     };
 
     &:active {
-      box-shadow: 0 .5rem 1rem ${Color(colors.black).alpha(0.2).toString()};
+      box-shadow: 0 .5rem 1rem ${rgba(colors.black, 0.2)};
       transform: translateY(-.1rem);
     };
 

@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
-import Color from 'color';
 
 import { colors } from '../res/colors';
 import { centerText, marginBottom } from '../res/styles';
+import { rgba } from '../utils/rgba';
 
 export const HeadingSecondary: React.FC = () =>  (
   <div css={centerText}>
@@ -30,7 +30,7 @@ const styles = {
     transition: all .2s;
 
     &:hover {
-      text-shadow: .5rem 1rem 2rem ${Color(colors.black).alpha(0.2).toString()};
+      text-shadow: .5rem 1rem 2rem ${rgba(colors.black, 0.2)};
       transform: skewY(2deg) skewX(15deg) scale(1.1);
     };
   `,

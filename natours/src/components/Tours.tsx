@@ -8,10 +8,6 @@ import { Button } from './Button';
 import { HeadingSecondary } from './HeadingSecondary';
 import { TourCard } from './TourCard';
 
-import nat4 from '../assets/nat-4.jpg';
-import nat5 from '../assets/nat-5.jpg';
-import nat6 from '../assets/nat-6.jpg';
-
 export const Tours: React.FC = () => (
   <div css={styles.container}>
     <HeadingSecondary>
@@ -20,7 +16,7 @@ export const Tours: React.FC = () => (
 
     <div css={row}>
       <TourCard
-        backgroundImage={nat4}
+        backgroundImage={require('../assets/nat-4.jpg')}
         colorDark={colors.yellowDark}
         colorLight={colors.yellowLight}
         heading="The sea explorer"
@@ -36,7 +32,7 @@ export const Tours: React.FC = () => (
       />
 
       <TourCard
-        backgroundImage={nat5}
+        backgroundImage={require('../assets/nat-5.jpg')}
         colorDark={colors.greenDark}
         colorLight={colors.greenLight}
         heading="The forest hiker"
@@ -52,7 +48,7 @@ export const Tours: React.FC = () => (
       />
 
       <TourCard
-        backgroundImage={nat6}
+        backgroundImage={require('../assets/nat-6.jpg')}
         colorDark={colors.blueDark}
         colorLight={colors.blueLight}
         heading="The snow adventurer"

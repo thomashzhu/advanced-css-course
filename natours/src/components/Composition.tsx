@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
-import Color from 'color';
 import React from 'react';
 
 import { colors } from '../res/colors';
+import { rgba } from '../utils/rgba';
 
 interface Position {
   bottom: number | string;
@@ -46,7 +46,7 @@ const styles = {
     ${position};
 
     border-radius: 2px;
-    box-shadow: 0 1.5rem 4rem ${Color(colors.black).alpha(0.4).toString()};
+    box-shadow: 0 1.5rem 4rem ${rgba(colors.black, 0.4)};
     outline-offset: 2rem;
     position: absolute;
     transition: transform .2s;
@@ -54,7 +54,7 @@ const styles = {
     z-index: 10;
 
     &:hover {
-      box-shadow: 0 2.5rem 4rem ${Color(colors.black).alpha(0.5).toString()};
+      box-shadow: 0 2.5rem 4rem ${rgba(colors.black, 0.5)};
       outline: 1.5rem solid ${colors.greenMedium};
       transform: scale(1.05) translateY(-.5rem);
       z-index: 20;

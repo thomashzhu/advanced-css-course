@@ -2,13 +2,12 @@
 import { css, jsx } from '@emotion/core';
 
 import { colors } from '../res/colors';
-import Color from 'color';
-
 import { row, oneOf } from '../res/styles';
-import { HeadingSecondary } from './HeadingSecondary';
-import { HeadingTertiary } from './HeadingTertiary';
+import { rgba } from '../utils/rgba';
 import { ButtonText } from './ButtonText';
 import { Composition } from './Composition';
+import { HeadingSecondary } from './HeadingSecondary';
+import { HeadingTertiary } from './HeadingTertiary';
 
 export const About = () => (
   <section css={styles.about}>
@@ -61,7 +60,7 @@ const styles = {
     transition: all .2s;
 
     &:hover {
-      text-shadow: .5rem 1rem 2rem ${Color(colors.black).alpha(0.2).toString()};
+      text-shadow: .5rem 1rem 2rem ${rgba(colors.black, 0.2)};
       transform: skewY(2deg) skewX(15deg) scale(1.1);
     };
   `,

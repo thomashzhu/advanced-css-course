@@ -1,10 +1,10 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
-import Color from 'color';
 import React from 'react';
 
 import { colors } from '../res/colors';
 import { defaultFontSize } from '../res/styles';
+import { rgba } from '../utils/rgba';
 
 interface IProps extends React.HTMLProps<HTMLAnchorElement> {}
 
@@ -34,13 +34,13 @@ const styles = {
 
     &:hover {
       background-color: ${colors.greenMedium};
-      box-shadow: 0 1rem 2rem ${Color(colors.black).alpha(0.15).toString()};
+      box-shadow: 0 1rem 2rem ${rgba(colors.black, 0.15)};
       color: ${colors.white};
       transform: translateY(-2px);
     };
 
     &:active {
-      box-shadow: 0 .5rem 1rem ${Color(colors.black).alpha(0.15).toString()};
+      box-shadow: 0 .5rem 1rem ${rgba(colors.black, 0.15)};
       transform: translateY(-2px);
     };
   `,

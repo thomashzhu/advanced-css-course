@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import { jsx, css, SerializedStyles } from '@emotion/core'
-import Color from 'color';
 import React from 'react';
 
 import { colors } from '../res/colors';
+import { rgba } from '../utils/rgba';
 import { Button } from './Button';
 
 interface Props {
@@ -81,7 +81,7 @@ const styles = {
     .side {
       backface-visibility: hidden;
       border-radius: 3px;
-      box-shadow: 0 1.5rem 4rem ${Color(colors.black).alpha(0.15).toString()};
+      box-shadow: 0 1.5rem 4rem ${rgba(colors.black, 0.15)};
       height: 52rem;
       left: 0;
       overflow: hidden;
@@ -148,8 +148,8 @@ const styles = {
       background-image:
         linear-gradient(
           to right bottom,
-          ${Color(props.colorLight).alpha(0.8).toString()},
-          ${Color(props.colorDark).alpha(0.8).toString()}
+          ${rgba(props.colorLight, 0.8)},
+          ${rgba(props.colorDark, 0.8)}
         );
       box-decoration-break: clone;
       padding: 1rem 1.5rem;

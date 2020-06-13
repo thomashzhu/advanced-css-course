@@ -1,10 +1,10 @@
 /** @jsx jsx */
-import Color from 'color';
 import { css, jsx } from '@emotion/core';
 import React from 'react';
 
-import { colors } from '../res/colors';
 import hero from '../assets/hero.jpg';
+import { colors } from '../res/colors';
+import { rgba } from '../utils/rgba';
 
 export const Header: React.FC = ({ children }) => (
   <div css={styles.header}>
@@ -19,8 +19,8 @@ const styles = {
     background-image:
       linear-gradient(
         to right bottom,
-        ${Color(colors.greenLight).alpha(0.8).toString()},
-        ${Color(colors.greenDark).alpha(0.8).toString()}
+        ${rgba(colors.greenLight, 0.8)},
+        ${rgba(colors.greenDark, 0.8)}
       ),
       url(${hero});
     background-position: top;

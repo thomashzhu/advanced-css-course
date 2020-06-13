@@ -4,16 +4,20 @@ import Color from 'color';
 import React from 'react';
 
 import { colors } from '../res/colors';
+import { Button } from './Button';
 
 interface Props {
-  backgroundGradient: string;
   backgroundImage: string;
+  colorDark: string;
+  colorLight: string;
   heading: string;
+  items: string[];
+  price: string;
   style: SerializedStyles
 }
 
 export const TourCard: React.FC<Props> = (props) => {
-  const { heading, style } = props;
+  const { heading, items, price, style } = props;
 
   return (
     <div css={[styles.container(props), style]}>
@@ -29,20 +33,48 @@ export const TourCard: React.FC<Props> = (props) => {
         </h4>
 
         <div css={styles.details}>
-          details
+          <ul>
+            {items.map(item => <li>{item}</li>)}
+          </ul>
         </div>
       </div>
 
       <div className="side side--back">
+        <div css={styles.callToAction}>
+          <div css={styles.price}>
+            <p className="price--text">
+              Only
+            </p>
+            <p className="price--value">
+              {price}
+            </p>
+          </div>
+
+          <Button
+            backgroundColor={colors.white}
+            href="#"
+            textColor={colors.grayDark1}
+          >
+            Book now!
+          </Button>
+        </div>
       </div>
     </div>
   );
 }
 
 const styles = {
+  callToAction: css`
+    left: 50%;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+  `,
   container: (props: Props) => css`
     -moz-perspective: 1500rem;
-    height: 50rem;
+    height: 52rem;
     perspective: 1500rem;
     position: relative;
 
@@ -50,7 +82,7 @@ const styles = {
       backface-visibility: hidden;
       border-radius: 3px;
       box-shadow: 0 1.5rem 4rem ${Color(colors.black).alpha(0.15).toString()};
-      height: 50rem;
+      height: 52rem;
       left: 0;
       overflow: hidden;
       position: absolute;
@@ -63,7 +95,12 @@ const styles = {
       };
 
       &--back {
-        background-image: ${props.backgroundGradient};
+        background-image:
+          linear-gradient(
+            to right bottom,
+            ${props.colorLight},
+            ${props.colorDark}
+          );
         transform: rotateY(180deg);
       };
     };
@@ -79,7 +116,22 @@ const styles = {
     }
   `,
   details: css`
+    ul {
+      list-style: none;
+      margin: 0 auto;
+      padding: 3rem;
+      width: 80%;
 
+      li {
+        font-size: 1.5rem;
+        padding: 1rem;
+        text-align: center;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid ${colors.grayLight2};
+        }
+      }
+    }
   `,
   heading: (props: Props) => css`
     color: ${colors.white};
@@ -93,16 +145,42 @@ const styles = {
     width: 75%;
 
     .heading--span {
-      background-image: ${props.backgroundGradient};
+      background-image:
+        linear-gradient(
+          to right bottom,
+          ${Color(props.colorLight).alpha(0.8).toString()},
+          ${Color(props.colorDark).alpha(0.8).toString()}
+        );
       box-decoration-break: clone;
       padding: 1rem 1.5rem;
     };
   `,
   picture: (props: Props) => css`
     background-blend-mode: screen;
-    background-image: ${props.backgroundGradient}, url(${props.backgroundImage});
+    background-image:
+      linear-gradient(
+        to right bottom,
+        ${props.colorLight},
+        ${props.colorDark}
+      ),
+      url(${props.backgroundImage});
     background-size: cover;
     clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
     height: 23rem;
+  `,
+  price: css`
+    color: ${colors.white};
+    text-align: center;
+    margin-bottom: 8rem;
+
+    .price--text {
+      font-size: 1.4rem;
+      text-transform: uppercase;
+    };
+
+    .price--value {
+      font-size: 6rem;
+      font-weight: 100;
+    };
   `,
 };

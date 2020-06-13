@@ -14,6 +14,10 @@ export const marginBottom = (size: number) => css`
   margin-bottom: ${size}rem;
 `;
 
+export const marginTop = (size: number) => css`
+  margin-top: ${size}rem;
+`;
+
 export const oneOf = (size: number) => css`
   float: left;
   width: calc((100% - ${size - 1} * ${gutterHorizontal}) / ${size});

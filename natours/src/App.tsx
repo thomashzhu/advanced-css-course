@@ -9,6 +9,7 @@ import { HeaderPrimary } from './components/HeaderPrimary';
 import { Logo } from './components/Logo';
 import { Tours } from './components/Tours';
 import { TextBox } from './components/TextBox';
+import { colors } from './res/colors';
 
 export const App = () => (
   <React.Fragment>
@@ -24,8 +25,9 @@ export const App = () => (
         />
 
         <Button
+          backgroundColor={colors.white}
           href="#"
-          white
+          textColor={colors.grayDark1}
         >
           Discover our tours
         </Button>

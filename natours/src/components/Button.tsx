@@ -8,22 +8,28 @@ import { colors } from '../res/colors';
 import { TranslateYOrigin } from '../res/types';
 
 interface IProps extends React.HTMLProps<HTMLAnchorElement> {
-  white: boolean;
+  backgroundColor: string;
+  textColor: string;
 }
 
 export const Button: React.FC<IProps> = ({
-  children, white, ...restProps
+  children, ...restProps
 }) => (
   <a
     {...restProps}
-    css={[styles.container, styles.white]}
+    css={styles.container(restProps)}
   >
     {children}
   </a>
 )
 
 const styles = {
-  container: css`
+  container: (props: IProps) => css`
+    animation: ${moveVertically(TranslateYOrigin.Bottom)} .5s ease-out .75s;
+    animation-fill-mode: backwards;
+    background-color: ${props.backgroundColor};
+    color: ${props.textColor};
+
     &:link,
     &:visited {
       border-radius: 10rem;
@@ -51,6 +57,7 @@ const styles = {
     };
 
     &::after {
+      background-color: ${props.backgroundColor};
       border-radius: 10rem;
       content: '';
       display: inline-block;
@@ -61,16 +68,6 @@ const styles = {
       transition: all .4s;
       width: 100%;
       z-index: -1;
-    };
-  `,
-  white: css`
-    animation: ${moveVertically(TranslateYOrigin.Bottom)} .5s ease-out .75s;
-    animation-fill-mode: backwards;
-    background-color: ${colors.white};
-    color: #777;
-
-    &::after {
-      background-color: ${colors.white};
     };
   `,
 }

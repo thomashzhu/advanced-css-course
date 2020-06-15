@@ -17,11 +17,11 @@ const styles = {
       box-sizing: inherit;
       margin: 0;
       padding: 0;
-    };
+    }
 
     html {
       font-size: 62.5%;
-    };
+    }
 
     body {
       box-sizing: border-box;
@@ -31,6 +31,6 @@ const styles = {
       font-weight: 400;
       line-height: 1.7;
       padding: 3rem;
-    };
+    }
   `,
 };

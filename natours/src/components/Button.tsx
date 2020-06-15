@@ -39,7 +39,7 @@ const styles = {
       text-decoration: none;
       text-transform: uppercase;
       transition: all .2s;
-    };
+    }
 
     &:hover {
       box-shadow: 0 1rem 2rem ${rgba(colors.black, 0.2)};
@@ -48,13 +48,13 @@ const styles = {
       &::after {
         transform: scaleX(1.4) scaleY(1.6);
         opacity: 0;
-      };
-    };
+      }
+    }
 
     &:active {
       box-shadow: 0 .5rem 1rem ${rgba(colors.black, 0.2)};
       transform: translateY(-.1rem);
-    };
+    }
 
     &::after {
       background-color: ${props.backgroundColor};
@@ -68,6 +68,6 @@ const styles = {
       transition: all .4s;
       width: 100%;
       z-index: -1;
-    };
+    }
   `,
 }

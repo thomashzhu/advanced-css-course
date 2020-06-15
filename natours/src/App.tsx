@@ -7,8 +7,9 @@ import { GlobalStyles } from './components/GlobalStyles';
 import { Header } from './components/Header';
 import { HeaderPrimary } from './components/HeaderPrimary';
 import { Logo } from './components/Logo';
-import { Tours } from './components/Tours';
+import { Stories } from './components/Stories';
 import { TextBox } from './components/TextBox';
+import { Tours } from './components/Tours';
 import { colors } from './res/colors';
 
 export const App = () => (
@@ -39,5 +40,7 @@ export const App = () => (
     <Features />
 
     <Tours />
+
+    <Stories />
   </React.Fragment>
 );

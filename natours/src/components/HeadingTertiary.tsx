@@ -33,6 +33,6 @@ const styles = {
 
     &:not(:last-child) {
       margin-bottom: 3rem;
-    };
+    }
   `,
 };

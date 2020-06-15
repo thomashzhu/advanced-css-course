@@ -41,7 +41,7 @@ const styles = {
 
     &:hover {
       transform: scale(1.03) translateY(-1.5rem);
-    };
+    }
   `,
   icon: css`
     -webkit-background-clip: text;

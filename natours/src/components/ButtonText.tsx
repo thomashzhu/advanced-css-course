@@ -30,18 +30,18 @@ const styles = {
       padding: 3px;
       text-decoration: none;
       transition: all .2s;
-    };
+    }
 
     &:hover {
       background-color: ${colors.greenMedium};
       box-shadow: 0 1rem 2rem ${rgba(colors.black, 0.15)};
       color: ${colors.white};
       transform: translateY(-2px);
-    };
+    }
 
     &:active {
       box-shadow: 0 .5rem 1rem ${rgba(colors.black, 0.15)};
       transform: translateY(-2px);
-    };
+    }
   `,
 }

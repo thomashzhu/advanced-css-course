@@ -59,6 +59,6 @@ const styles = {
 
     & > * {
       transform: skewY(${SKEW_DEGREE}deg);
-    };
+    }
   `,
 };

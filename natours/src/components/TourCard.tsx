@@ -92,7 +92,7 @@ const styles = {
 
       &--front {
         background: white;
-      };
+      }
 
       &--back {
         background-image:
@@ -102,17 +102,17 @@ const styles = {
             ${props.colorDark}
           );
         transform: rotateY(180deg);
-      };
-    };
+      }
+    }
 
     &:hover {
       .side--front {
         transform: rotateY(-180deg);
-      };
+      }
 
       .side--back {
         transform: rotateY(0deg);
-      };
+      }
     }
   `,
   details: css`
@@ -153,7 +153,7 @@ const styles = {
         );
       box-decoration-break: clone;
       padding: 1rem 1.5rem;
-    };
+    }
   `,
   picture: (props: Props) => css`
     background-blend-mode: screen;
@@ -176,11 +176,11 @@ const styles = {
     .price--text {
       font-size: 1.4rem;
       text-transform: uppercase;
-    };
+    }
 
     .price--value {
       font-size: 6rem;
       font-weight: 100;
-    };
+    }
   `,
 };

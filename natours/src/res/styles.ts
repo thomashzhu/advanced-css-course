@@ -24,7 +24,7 @@ export const oneOf = (size: number) => css`
 
   &:not(:last-child) {
     margin-right: ${gutterHorizontal};
-  };
+  }
 `;
 
 export const row = css`
@@ -33,11 +33,11 @@ export const row = css`
 
   &:not(:last-child) {
     margin-bottom: ${gutterVertical};
-  };
+  }
 
   &:after {
     content: "";
     display: table;
     clear: both;
-  };
+  }
 `;

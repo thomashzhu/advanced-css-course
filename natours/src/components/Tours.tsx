@@ -64,7 +64,7 @@ export const Tours: React.FC = () => (
       />
     </div>
 
-    <div css={[ centerText, marginTop(10) ]}>
+    <div css={[centerText, marginTop(10)]}>
       <Button
         backgroundColor={colors.greenMedium}
         href="#"

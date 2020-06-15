@@ -40,7 +40,7 @@ const styles = {
 
     &:hover img:not(:hover) {
       transform: scale(.95);
-    };
+    }
   `,
   photo: (position: Partial<Position>) => css`
     ${position};
@@ -58,6 +58,6 @@ const styles = {
       outline: 1.5rem solid ${colors.greenMedium};
       transform: scale(1.05) translateY(-.5rem);
       z-index: 20;
-    };
+    }
   `,
 };

@@ -5,10 +5,10 @@ import { colors } from '../res/colors';
 import { centerText, marginBottom } from '../res/styles';
 import { rgba } from '../utils/rgba';
 
-export const HeadingSecondary: React.FC = () =>  (
+export const HeadingSecondary: React.FC = ({ children }) =>  (
   <div css={centerText}>
     <h2 css={[styles.headingSecondary, marginBottom(8)]}>
-      Exciting tours for adventurous people
+      {children}
     </h2>
   </div>
 );
@@ -32,6 +32,6 @@ const styles = {
     &:hover {
       text-shadow: .5rem 1rem 2rem ${rgba(colors.black, 0.2)};
       transform: skewY(2deg) skewX(15deg) scale(1.1);
-    };
+    }
   `,
 };

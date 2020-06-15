@@ -11,7 +11,9 @@ import { HeadingTertiary } from './HeadingTertiary';
 
 export const About = () => (
   <section css={styles.about}>
-    <HeadingSecondary />
+    <HeadingSecondary>
+      Exciting tours for adventurous people
+    </HeadingSecondary>
 
     <div css={row}>
       <div css={oneOf(2)}>
@@ -62,6 +64,6 @@ const styles = {
     &:hover {
       text-shadow: .5rem 1rem 2rem ${rgba(colors.black, 0.2)};
       transform: skewY(2deg) skewX(15deg) scale(1.1);
-    };
+    }
   `,
 };

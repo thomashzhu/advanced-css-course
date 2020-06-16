@@ -13,22 +13,22 @@ interface IProps extends React.HTMLProps<HTMLAnchorElement> {
 }
 
 export const Button: React.FC<IProps> = ({
-  children, ...restProps
+  backgroundColor, children, textColor, ...restProps
 }) => (
   <a
     {...restProps}
-    css={styles.container(restProps)}
+    css={styles.container(backgroundColor, textColor)}
   >
     {children}
   </a>
 )
 
 const styles = {
-  container: (props: IProps) => css`
+  container: (backgroundColor: string, textColor: string) => css`
     animation: ${moveVertically(TranslateYOrigin.Bottom)} .5s ease-out .75s;
     animation-fill-mode: backwards;
-    background-color: ${props.backgroundColor};
-    color: ${props.textColor};
+    background-color: ${backgroundColor};
+    color: ${textColor};
 
     &:link,
     &:visited {
@@ -57,7 +57,7 @@ const styles = {
     }
 
     &::after {
-      background-color: ${props.backgroundColor};
+      background-color: ${backgroundColor};
       border-radius: 10rem;
       content: '';
       display: inline-block;

@@ -2,11 +2,11 @@
 import { jsx, css } from '@emotion/core'
 import React from 'react';
 
-import { colors } from '../res/colors';
 import { centerText, marginTop, row } from '../res/styles';
 import { ButtonText } from './ButtonText';
 import { HeadingSecondary } from './HeadingSecondary';
 import { Story } from './Story';
+import { VideoBackground } from './VideoBackground';
 
 interface Props {
   
@@ -14,6 +14,20 @@ interface Props {
 
 export const Stories: React.FC<Props> = () => (
   <section css={styles.container}>
+    <VideoBackground
+      autoPlay
+      defaultText="Your browser is not supported!"
+      loop
+      muted
+      sources={[{
+        src: require('../assets/video.mp4'),
+        type: 'video/mp4',
+      }, {
+        src: require('../assets/video.webm'),
+        type: 'video/webm',
+      }]}
+    />
+
     <HeadingSecondary>
       We make people genuinely happy
     </HeadingSecondary>
@@ -46,7 +60,7 @@ export const Stories: React.FC<Props> = () => (
 
 const styles = {
   container: css`
-    background-color: ${colors.grayLight1};
     padding: 15rem 0;
+    position: relative;
   `,
 };

@@ -34,7 +34,11 @@ export const TourCard: React.FC<Props> = (props) => {
 
         <div css={styles.details}>
           <ul>
-            {items.map(item => <li>{item}</li>)}
+            {items.map((item) => (
+              <li key={item}>
+                {item}
+              </li>
+            ))}
           </ul>
         </div>
       </div>

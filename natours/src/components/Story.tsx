@@ -57,7 +57,7 @@ const styles = {
     transition: all .5s;
   `,
   container: css`
-    background-color: ${colors.white};
+    background-color: ${rgba(colors.white, 0.6)};
     border-radius: 3px;
     box-shadow: 0 3rem 6rem ${rgba(colors.black, 0.1)};
     font-size: ${defaultFontSize};
@@ -78,14 +78,18 @@ const styles = {
 
       .image {
         filter: blur(3px) brightness(80%);
-        transform: scale(1) translateX(-4rem);
+        height: 100%;
+        transform: translate(-50%, -50%);
       }
     }
   `,
   image: css`
     background-size: cover;
-    height: 100%;
-    transform: scale(1.4) translateX(-3rem);
+    height: 140%;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
     transition: all .5s;
   `,
   shape: css`

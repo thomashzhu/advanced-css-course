@@ -2,8 +2,8 @@
 import { jsx, css } from '@emotion/core'
 import React from 'react';
 
-import { marginBottom } from '../res/styles';
 import { HeadingSecondary } from './HeadingSecondary';
+import { InputField } from './InputField';
 
 interface Props {
   
@@ -19,29 +19,21 @@ export const BookingForm: React.FC<Props> = () => (
         Start booking now
       </HeadingSecondary>
 
-      <div css={styles.group}>
-        <input
-          id="name"
-          placeholder="Full name"
-          required
-          type="text"
-        />
-        <label htmlFor="name">
-          Full name
-        </label>
-      </div>
+      <InputField
+        id="name"
+        label="Full name"
+        placeholder="Full name"
+        required
+        type="text"
+      />
 
-      <div css={styles.group}>
-        <input
-          id="email"
-          placeholder="Email address"
-          required
-          type="email"
-        />
-        <label htmlFor="email">
-          Email address
-        </label>
-      </div>
+      <InputField
+        id="email"
+        label="Email address"
+        placeholder="Email address"
+        required
+        type="email"
+      />
     </form>
   </div>
 );
@@ -52,9 +44,6 @@ const styles = {
     width: 50%;
   `,
   form: css`
-    
-  `,
-  group: css`
     
   `,
 };

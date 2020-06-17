@@ -6,12 +6,12 @@ import { moveHorizontally } from '../res/animations';
 import { colors } from '../res/colors';
 import { TranslateXOrigin } from '../res/types';
 
-interface IProps {
+interface Props {
   main: string;
   sub: string;
 }
 
-export const HeaderPrimary: React.FC<IProps> = ({
+export const HeaderPrimary: React.FC<Props> = ({
   main, sub,
 }) => (
   <h1 css={styles.container}>

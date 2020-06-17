@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { About } from './components/About';
+import { AnchorButton } from './components/Buttons';
 import { Booking } from './components/Booking';
-import { Button } from './components/Button';
 import { Features } from './components/Features';
 import { GlobalStyles } from './components/GlobalStyles';
 import { Header } from './components/Header';
@@ -26,13 +26,13 @@ export const App = () => (
           sub="is where life happens"
         />
 
-        <Button
+        <AnchorButton
           backgroundColor={colors.white}
           href="#"
           textColor={colors.grayDark1}
         >
           Discover our tours
-        </Button>
+        </AnchorButton>
       </TextBox>
     </Header>
 

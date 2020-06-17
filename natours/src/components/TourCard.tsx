@@ -4,7 +4,7 @@ import React from 'react';
 
 import { colors } from '../res/colors';
 import { rgba } from '../utils/rgba';
-import { Button } from './Button';
+import { AnchorButton } from './Buttons';
 
 interface Props {
   backgroundImage: string;
@@ -54,13 +54,13 @@ export const TourCard: React.FC<Props> = (props) => {
             </p>
           </div>
 
-          <Button
+          <AnchorButton
             backgroundColor={colors.white}
             href="#"
             textColor={colors.grayDark1}
           >
             Book now!
-          </Button>
+          </AnchorButton>
         </div>
       </div>
     </div>

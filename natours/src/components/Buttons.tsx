@@ -7,12 +7,14 @@ import { colors } from '../res/colors';
 import { TranslateYOrigin } from '../res/types';
 import { rgba } from '../utils/rgba';
 
-interface IProps extends React.HTMLProps<HTMLAnchorElement> {
+interface Props {
   backgroundColor: string;
   textColor: string;
 }
+interface AnchorProps extends React.HTMLProps<HTMLAnchorElement>, Props {}
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, Props {}
 
-export const Button: React.FC<IProps> = ({
+export const AnchorButton: React.FC<AnchorProps> = ({
   backgroundColor, children, textColor, ...restProps
 }) => (
   <a
@@ -23,6 +25,17 @@ export const Button: React.FC<IProps> = ({
   </a>
 )
 
+export const Button: React.FC<ButtonProps> = ({
+  backgroundColor, children, textColor, ...restProps
+}) => (
+  <button
+    {...restProps}
+    css={styles.container(backgroundColor, textColor)}
+  >
+    {children}
+  </button>
+)
+
 const styles = {
   container: (backgroundColor: string, textColor: string) => css`
     animation: ${moveVertically(TranslateYOrigin.Bottom)} .5s ease-out .75s;
@@ -30,6 +43,7 @@ const styles = {
     background-color: ${backgroundColor};
     color: ${textColor};
 
+    &,
     &:link,
     &:visited {
       border-radius: 10rem;
@@ -39,6 +53,10 @@ const styles = {
       text-decoration: none;
       text-transform: uppercase;
       transition: all .2s;
+
+      /* Change for the <button> element */
+      border: none;
+      cursor: pointer;
     }
 
     &:hover {
@@ -51,8 +69,10 @@ const styles = {
       }
     }
 
-    &:active {
+    &:active,
+    &:focus {
       box-shadow: 0 .5rem 1rem ${rgba(colors.black, 0.2)};
+      outline: none;
       transform: translateY(-.1rem);
     }
 

@@ -4,7 +4,7 @@ import React from 'react';
 
 import { centerText, marginTop, oneOf, row } from '../res/styles';
 import { colors } from '../res/colors';
-import { Button } from './Button';
+import { AnchorButton } from './Buttons';
 import { HeadingSecondary } from './HeadingSecondary';
 import { TourCard } from './TourCard';
 
@@ -65,13 +65,13 @@ export const Tours: React.FC = () => (
     </div>
 
     <div css={[centerText, marginTop(10)]}>
-      <Button
+      <AnchorButton
         backgroundColor={colors.greenMedium}
         href="#"
         textColor={colors.white}
       >
         Discover all tours
-      </Button>
+      </AnchorButton>
     </div>
   </div>
 );

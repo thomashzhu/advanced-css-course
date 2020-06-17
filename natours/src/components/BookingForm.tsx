@@ -2,14 +2,14 @@
 import { jsx, css } from '@emotion/core'
 import React from 'react';
 
+import { colors } from '../res/colors';
+import { marginTop } from '../res/styles';
+import { Button } from './Buttons';
 import { HeadingSecondary } from './HeadingSecondary';
 import { InputField } from './InputField';
+import { Radio } from './Radio';
 
-interface Props {
-  
-}
-
-export const BookingForm: React.FC<Props> = () => (
+export const BookingForm: React.FC = () => (
   <div css={styles.container}>
     <form
       action="#"
@@ -34,6 +34,27 @@ export const BookingForm: React.FC<Props> = () => (
         required
         type="email"
       />
+
+      <Radio
+        id="small"
+        label="Small tour group"
+        name="size"
+      />
+
+      <Radio
+        id="large"
+        label="Large tour group"
+        name="size"
+      />
+
+      <div css={marginTop(4)}>
+        <Button
+          backgroundColor={colors.greenMedium}
+          textColor={colors.white}
+        >
+          Next step
+        </Button>
+      </div>
     </form>
   </div>
 );

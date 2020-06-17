@@ -17,6 +17,7 @@ export const InputField: React.FunctionComponent<Props> = ({
     <input
       {...restProps}
       css={styles.input}
+      id={id}
     />
     <label
       css={styles.label}

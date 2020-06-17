@@ -7,11 +7,7 @@ import { row } from '../res/styles';
 import { rgba } from '../utils/rgba';
 import { BookingForm } from './BookingForm';
 
-interface Props {
-  
-}
-
-export const Booking: React.FC<Props> = () => (
+export const Booking: React.FC = () => (
   <section css={styles.container}>
     <div css={row}>
       <div css={styles.content}>

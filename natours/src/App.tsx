@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { About } from './components/About';
+import { Booking } from './components/Booking';
 import { Button } from './components/Button';
 import { Features } from './components/Features';
 import { GlobalStyles } from './components/GlobalStyles';
@@ -42,5 +43,7 @@ export const App = () => (
     <Tours />
 
     <Stories />
+
+    <Booking />
   </React.Fragment>
 );

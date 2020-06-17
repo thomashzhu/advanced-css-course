@@ -8,11 +8,7 @@ import { HeadingSecondary } from './HeadingSecondary';
 import { Story } from './Story';
 import { VideoBackground } from './VideoBackground';
 
-interface Props {
-  
-}
-
-export const Stories: React.FC<Props> = () => (
+export const Stories: React.FC = () => (
   <section css={styles.container}>
     <VideoBackground
       autoPlay

@@ -5,9 +5,15 @@ import { colors } from '../res/colors';
 import { centerText, marginBottom } from '../res/styles';
 import { rgba } from '../utils/rgba';
 
-export const HeadingSecondary: React.FC = ({ children }) =>  (
-  <div css={centerText}>
-    <h2 css={[styles.headingSecondary, marginBottom(8)]}>
+interface Props {
+  bottomSpace?: number;
+}
+
+export const HeadingSecondary: React.FC<Props> = ({
+  children, bottomSpace = 8,
+}) =>  (
+  <div css={[centerText, marginBottom(bottomSpace)]}>
+    <h2 css={styles.headingSecondary}>
       {children}
     </h2>
   </div>

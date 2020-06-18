@@ -4,6 +4,7 @@ import { About } from './components/About';
 import { AnchorButton } from './components/Buttons';
 import { Booking } from './components/Booking';
 import { Features } from './components/Features';
+import { Footer } from './components/Footer';
 import { GlobalStyles } from './components/GlobalStyles';
 import { Header } from './components/Header';
 import { HeaderPrimary } from './components/HeaderPrimary';
@@ -17,33 +18,37 @@ export const App = () => (
   <React.Fragment>
     <GlobalStyles />
 
-    <Header>
-      <Logo />
+    <main>
+      <Header>
+        <Logo />
 
-      <TextBox>
-        <HeaderPrimary
-          main="Outdoor"
-          sub="is where life happens"
-        />
+        <TextBox>
+          <HeaderPrimary
+            main="Outdoor"
+            sub="is where life happens"
+          />
 
-        <AnchorButton
-          backgroundColor={colors.white}
-          href="#"
-          textColor={colors.grayDark1}
-        >
-          Discover our tours
-        </AnchorButton>
-      </TextBox>
-    </Header>
+          <AnchorButton
+            backgroundColor={colors.white}
+            href="#"
+            textColor={colors.grayDark1}
+          >
+            Discover our tours
+          </AnchorButton>
+        </TextBox>
+      </Header>
 
-    <About />
+      <About />
 
-    <Features />
+      <Features />
 
-    <Tours />
+      <Tours />
 
-    <Stories />
+      <Stories />
 
-    <Booking />
+      <Booking />
+    </main>
+
+    <Footer />
   </React.Fragment>
 );

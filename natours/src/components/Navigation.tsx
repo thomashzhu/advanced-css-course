@@ -2,6 +2,7 @@
 import { jsx, css } from '@emotion/core'
 import React from 'react';
 import { colors } from '../res/colors';
+import { rgba } from '../utils/rgba';
 
 interface Props {
   
@@ -26,15 +27,23 @@ export const Navigation: React.FC<Props> = () => (
     <label
       css={styles.button}
       htmlFor="navigation-toggle"
+      id="button"
     >
-      &nbsp;
+      <span
+        css={styles.buttonIcon}
+        id="button-icon"
+      />
     </label>
 
-    <div css={styles.background}>
-      &nbsp;
-    </div>
+    <div
+      id="background"
+      css={styles.background}
+    />
 
-    <nav css={styles.navigation}>
+    <nav
+      css={styles.navigation}
+      id="navigation"
+    >
       <ul css={styles.navigationList}>
         <li>
           <Link><span>01</span>About Natours</Link>
@@ -60,36 +69,103 @@ const styles = {
   background: css`
     background-image: radial-gradient(${colors.greenLight}, ${colors.greenDark});
     border-radius: 50%;
+    box-shadow: 0 1rem 3rem ${rgba(colors.black, 0.1)};
     height: 6rem;
     position: fixed;
     right: 6.5rem;
     top: 6.5rem;
+    transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1);
     width: 6rem;
     z-index: 1000;
-    transform: scale(100);
   `,
   button: css`
     background-color: ${colors.white};
     border-radius: 50%;
+    cursor: pointer;
     height: 7rem;
     position: fixed;
     right: 6rem;
+    text-align: center;
     top: 6rem;
     width: 7rem;
     z-index: 2000;
+
+    &:hover {
+      #button-icon::before {
+        top: -1rem;
+      }
+      
+      #button-icon::after {
+        top: 1rem;
+      }
+    }
+  `,
+  buttonIcon: css`
+    position: relative;
+    margin-top: 3.5rem;
+
+    &,
+    &::before,
+    &::after {
+      background-color: ${colors.grayDark3};
+      display: inline-block;
+      height: 2px;
+      width: 3rem;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      left: 0;
+      position: absolute;
+      transition: all .2s;
+    }
+
+    &::before {
+      top: -.8rem;
+    }
+
+    &::after {
+      top: .8rem;
+    }
   `,
   checkbox: css`
     display: none;
   `,
   container: css`
-    
+    #navigation-toggle:checked ~ #background {
+      transform: scale(100);
+    }
+
+    #navigation-toggle:checked + #button {
+      #button-icon {
+        background-color: transparent;
+      }
+
+      #button-icon::before {
+        top: 0;
+        transform: rotate(135deg);
+      }
+
+      #button-icon::after {
+        top: 0;
+        transform: rotate(-135deg);
+      }
+    }
+
+    #navigation-toggle:checked ~ #navigation {
+      opacity: 1;
+      width: 100vw;
+    }
   `,
   navigation: css`
     height: 100vh;
     left: 0;
+    opacity: 0;
     position: fixed;
     top: 0;
-    width: 100vw;
+    transition: all .8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    width: 0;
     z-index: 1500;
   `,
   navigationItem: css`
@@ -121,6 +197,7 @@ const styles = {
     text-align: center;
     top: 50%;
     transform: translate(-50%, -50%);
+    width: 100%;
 
     li {
       margin: 1rem;

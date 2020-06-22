@@ -1,12 +1,10 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
 import React from 'react';
-import { colors } from '../res/colors';
-import { rgba } from '../utils/rgba';
 
-interface Props {
-  
-}
+import { colors } from '../res/colors';
+import { center } from '../res/styles';
+import { rgba } from '../utils/rgba';
 
 const Link: React.FC = ({ children }) => (
   <a
@@ -17,7 +15,7 @@ const Link: React.FC = ({ children }) => (
   </a>
 );
 
-export const Navigation: React.FC<Props> = () => (
+export const Navigation: React.FC = () => (
   <div css={styles.container}>
     <input
       css={styles.checkbox}
@@ -191,12 +189,10 @@ const styles = {
     }
   `,
   navigationList: css`
-    left: 50%;
+    ${center};
+
     list-style: none;
-    position: absolute;
     text-align: center;
-    top: 50%;
-    transform: translate(-50%, -50%);
     width: 100%;
 
     li {

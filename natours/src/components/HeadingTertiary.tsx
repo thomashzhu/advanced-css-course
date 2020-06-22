@@ -1,22 +1,24 @@
 /** @jsx jsx */
-import { css, jsx } from '@emotion/core';
+import { css, jsx, SerializedStyles } from '@emotion/core';
 import React from 'react';
 
 import { defaultFontSize, marginBottom } from '../res/styles';
 
 interface Props {
+  bottomSpace?: number;
   heading: string;
+  textStyle?: SerializedStyles;
 }
 
 export const HeadingTertiary: React.FC<Props> = ({
-  children, heading,
+  bottomSpace = 1.5, children, heading, textStyle = {}
 }) => (
   <React.Fragment>
-    <h3 css={[styles.container, marginBottom(1.5)]}>
+    <h3 css={[styles.container, marginBottom(bottomSpace)]}>
       {heading}
     </h3>
 
-    <p css={[styles.paragraph, marginBottom(1.5)]}>
+    <p css={[styles.paragraph, marginBottom(bottomSpace), textStyle]}>
       {children}
     </p>
   </React.Fragment>

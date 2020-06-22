@@ -10,6 +10,13 @@ export const centerText = css`
   text-align: center;
 `;
 
+export const center = css`
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+`;
+
 export const marginBottom = (size: number) => css`
   margin-bottom: ${size}rem;
 `;

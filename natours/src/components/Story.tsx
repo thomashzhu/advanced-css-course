@@ -4,7 +4,7 @@ import React from 'react';
 
 import { colors } from '../res/colors';
 import { rgba } from '../utils/rgba';
-import { defaultFontSize } from '../res/styles';
+import { center, defaultFontSize } from '../res/styles';
 import { HeadingTertiary } from './HeadingTertiary';
 
 interface Props {
@@ -44,16 +44,14 @@ export const Story: React.FC<Props> = ({
 
 const styles = {
   caption: css`
+    ${center};
+
     backface-visibility: hidden;
     color: ${colors.white};
     font-size: 1.7rem;
-    left: 50%;
     opacity: 0;
-    position: absolute;
     text-align: center;
     text-transform: uppercase;
-    top: 50%;
-    transform: translate(-50%, 20%);
     transition: all .5s;
   `,
   container: css`
@@ -78,18 +76,16 @@ const styles = {
 
       .image {
         filter: blur(3px) brightness(80%);
-        height: 100%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%) scale(1);
       }
     }
   `,
   image: css`
+    ${center};
+
     background-size: cover;
-    height: 140%;
-    left: 50%;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    height: 100%;
+    transform: translate(-50%, -50%) scale(1.4); // effect order does matter!
     transition: all .5s;
   `,
   shape: css`

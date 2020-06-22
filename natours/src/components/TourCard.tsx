@@ -5,6 +5,7 @@ import React from 'react';
 import { colors } from '../res/colors';
 import { rgba } from '../utils/rgba';
 import { AnchorButton } from './Buttons';
+import { center, centerText } from '../res/styles';
 
 interface Props {
   backgroundImage: string;
@@ -56,7 +57,7 @@ export const TourCard: React.FC<Props> = (props) => {
 
           <AnchorButton
             backgroundColor={colors.white}
-            href="#"
+            href="#popup"
             textColor={colors.grayDark1}
           >
             Book now!
@@ -69,11 +70,9 @@ export const TourCard: React.FC<Props> = (props) => {
 
 const styles = {
   callToAction: css`
-    left: 50%;
-    position: absolute;
-    text-align: center;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    ${center};
+    ${centerText};
+
     width: 90%;
   `,
   container: (props: Props) => css`

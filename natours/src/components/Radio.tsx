@@ -3,7 +3,7 @@ import { jsx, css } from '@emotion/core'
 import React from 'react';
 
 import { colors } from '../res/colors';
-import { defaultFontSize } from '../res/styles';
+import { center, defaultFontSize } from '../res/styles';
 
 interface Props extends React.HTMLProps<HTMLInputElement> {
   id: string;
@@ -59,16 +59,14 @@ const styles = {
     top: -.4rem;
 
     &::after {
+      ${center};
+
       background-color: ${colors.greenMedium};
       border-radius: 50%;
       content: "";
       display: block;
       height: 1.3rem;
-      left: 50%;
       opacity: 0;
-      position: absolute;
-      top: 50%;
-      transform: translate(-50%, -50%);
       transition: opacity .2s;
       width: 1.3rem;
     }

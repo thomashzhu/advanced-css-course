@@ -1,19 +1,11 @@
 /** @jsx jsx */
-import { css, jsx } from '@emotion/core';
+import { jsx } from '@emotion/core';
 import React from 'react';
 
+import { center, centerText } from '../res/styles';
+
 export const TextBox: React.FC = ({ children }) => (
-  <div css={styles.container}>
+  <div css={[ center, centerText ]}>
     {children}
   </div>
 )
-
-const styles = {
-  container: css`
-    left: 50%;
-    position: absolute;
-    top: 40%;
-    text-align: center;
-    transform: translate(-50%, -50%);
-  `,
-};

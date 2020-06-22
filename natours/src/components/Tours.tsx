@@ -9,7 +9,10 @@ import { HeadingSecondary } from './HeadingSecondary';
 import { TourCard } from './TourCard';
 
 export const Tours: React.FC = () => (
-  <div css={styles.container}>
+  <div
+    css={styles.container}
+    id="tours"
+  >
     <HeadingSecondary>
       Most popular tours
     </HeadingSecondary>

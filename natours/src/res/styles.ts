@@ -1,4 +1,5 @@
 import { css } from "@emotion/core";
+import facepaint from 'facepaint';
 
 export const defaultFontSize = '1.6rem';
 
@@ -24,6 +25,22 @@ export const marginBottom = (size: number) => css`
 export const marginTop = (size: number) => css`
   margin-top: ${size}rem;
 `;
+
+/**
+ * 0 - 600px     :     Phone
+ * 600 - 900px   :     Tablet portrait
+ * 900 - 1200px  :     Tablet landscape
+ * 1200 - 1800px :     Normal
+ * 1800+px       :     Big desktop
+ */
+const breakpoints = {
+  'min-width': [1800], // in px
+  'max-width': [1200, 900, 600], // in px
+}
+export const mq = facepaint([
+  ...breakpoints['min-width'].map(bp => `@media (min-width: ${bp / 16}em)`),
+  ...breakpoints['max-width'].map(bp => `@media (max-width: ${bp / 16}em)`),
+]);
 
 export const oneOf = (size: number) => css`
   float: left;

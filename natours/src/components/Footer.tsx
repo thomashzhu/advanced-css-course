@@ -3,7 +3,7 @@ import { jsx, css } from '@emotion/core'
 import React from 'react';
 
 import { colors } from '../res/colors';
-import { row, oneOf } from '../res/styles';
+import { row, oneOf, mq, smallest } from '../res/styles';
 import { rgba } from '../utils/rgba';
 
 const Link: React.FC = ({ children }) => (
@@ -61,14 +61,20 @@ const styles = {
   container: css`
     background-color: ${colors.grayDark3};
     font-size: 1.4rem;
-    padding: 10rem 0;
+
+    ${mq({
+      padding: smallest(['8rem 0', '8rem 0', '10rem 0']),
+    })}
   `,
   copyright: css`
     border-top: 1px solid ${colors.grayDark1};
     color: ${colors.grayLight1};
-    float: right;
     padding-top: 2rem;
-    width: 80%;
+
+    ${mq({
+      float: smallest(['none', 'none', 'right']),
+      width: smallest(['100%', '100%', '80%']),
+    })}
   `,
   link: css`
     &:link,
@@ -111,5 +117,10 @@ const styles = {
     border-top: 1px solid ${colors.grayDark1};
     display: inline-block;
     padding-top: 2rem;
+
+    ${mq({
+      textAlign: smallest(['center', 'center', 'initial']),
+      width: smallest(['100%', '100%', 'initial']),
+    })}
   `,
 };

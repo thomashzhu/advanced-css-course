@@ -4,6 +4,7 @@ import React from 'react';
 
 import { moveHorizontally } from '../res/animations';
 import { colors } from '../res/colors';
+import { mq, smallest } from '../res/styles';
 import { TranslateXOrigin } from '../res/types';
 
 interface Props {
@@ -35,15 +36,21 @@ const styles = {
   main: css`
     animation: ${moveHorizontally(TranslateXOrigin.Left)} 1s ease-out;
     display: block;
-    font-size: 6rem;
     font-weight: 400;
-    letter-spacing: 3.5rem;
+
+    ${mq({
+      fontSize: smallest(['5rem', '6rem']),
+      letterSpacing: smallest(['1rem', '3.5rem']),
+    })}
   `,
   sub: css`
     animation: ${moveHorizontally(TranslateXOrigin.Right)} 1s ease-out;
     display: block;
     font-size: 2rem;
     font-weight: 700;
-    letter-spacing: 1.75rem;
+
+    ${mq({
+      letterSpacing: smallest(['.5rem', '1.75rem']),
+    })}
   `,
 };

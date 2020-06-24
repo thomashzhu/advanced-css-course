@@ -2,7 +2,7 @@
 import { css, jsx } from '@emotion/core';
 
 import { colors } from '../res/colors';
-import { centerText, marginBottom } from '../res/styles';
+import { centerText, marginBottom, mq, smallest } from '../res/styles';
 import { rgba } from '../utils/rgba';
 
 interface Props {
@@ -29,11 +29,14 @@ const styles = {
     );
     color: transparent;
     display: inline-block;
-    font-size: 3.5rem;
     font-weight: 700;
     letter-spacing: .2rem;
     text-transform: uppercase;
     transition: all .2s;
+
+    ${mq({
+      fontSize: smallest(['2rem', '3rem', '3.5rem']),
+    })}
 
     &:hover {
       text-shadow: .5rem 1rem 2rem ${rgba(colors.black, 0.2)};

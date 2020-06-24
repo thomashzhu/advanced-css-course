@@ -4,6 +4,7 @@ import React from 'react';
 
 import hero from '../assets/hero.jpg';
 import { colors } from '../res/colors';
+import { mq, smallest } from '../res/styles';
 import { rgba } from '../utils/rgba';
 
 export const Header: React.FC = ({ children }) => (
@@ -25,8 +26,14 @@ const styles = {
       url(${hero});
     background-position: top;
     background-size: cover;
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     height: 95vh;
     position: relative;
+
+    ${mq({
+      clipPath: smallest([
+        'polygon(0 0, 100% 0, 100% 85vh, 0 100%)',
+        'polygon(0 0, 100% 0, 100% 75vh, 0 100%)',
+      ]),
+    })}
   `,
 };

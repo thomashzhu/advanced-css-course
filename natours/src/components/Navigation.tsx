@@ -3,7 +3,7 @@ import { jsx, css } from '@emotion/core'
 import React from 'react';
 
 import { colors } from '../res/colors';
-import { center } from '../res/styles';
+import { center, mq, smallest } from '../res/styles';
 import { rgba } from '../utils/rgba';
 
 const Link: React.FC = ({ children }) => (
@@ -70,11 +70,14 @@ const styles = {
     box-shadow: 0 1rem 3rem ${rgba(colors.black, 0.1)};
     height: 6rem;
     position: fixed;
-    right: 6.5rem;
-    top: 6.5rem;
     transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1);
     width: 6rem;
     z-index: 1000;
+
+    ${mq({
+      right: smallest(['3.5rem', '4.5rem', '6.5rem']),
+      top: smallest(['3.5rem', '4.5rem', '6.5rem']),
+    })}
   `,
   button: css`
     background-color: ${colors.white};
@@ -82,11 +85,15 @@ const styles = {
     cursor: pointer;
     height: 7rem;
     position: fixed;
-    right: 6rem;
     text-align: center;
-    top: 6rem;
+    
     width: 7rem;
     z-index: 2000;
+
+    ${mq({
+      right: smallest(['3rem', '4rem', '6rem']),
+      top: smallest(['3rem', '4rem', '6rem']),
+    })}
 
     &:hover {
       #button-icon::before {

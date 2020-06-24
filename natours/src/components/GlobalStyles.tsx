@@ -1,7 +1,7 @@
 import { css, Global } from '@emotion/core';
 import React from 'react';
 
-import { defaultFontSize, mq } from '../res/styles';
+import { defaultFontSize, mq, smallest } from '../res/styles';
 
 export const GlobalStyles = () => (
   <Global styles={styles.global} />
@@ -29,11 +29,14 @@ const styles = {
     body {
       box-sizing: border-box;
       color: #777;
+      font-size: ${defaultFontSize};
       font-family: Lato, sans-serif;
-      /* font-size: ${defaultFontSize}; */
       font-weight: 400;
       line-height: 1.7;
-      padding: 3rem;
+
+      ${mq({
+        padding: smallest([0, 0, '3rem']),
+      })}
     }
   `,
 };

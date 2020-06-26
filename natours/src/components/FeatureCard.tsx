@@ -3,6 +3,7 @@ import { jsx, css, SerializedStyles } from '@emotion/core'
 import React from 'react';
 
 import { colors } from '../res/colors';
+import { mq, smallest } from '../res/styles';
 import { rgba } from '../utils/rgba';
 import { HeadingTertiary } from './HeadingTertiary';
 
@@ -35,9 +36,12 @@ const styles = {
     border-radius: 3px;
     box-shadow: 0 1.5rem 4rem ${rgba(colors.black, 0.15)};
     font-size: 1.5rem;
-    padding: 2.5rem;
     text-align: center;
     transition: transform .3s;
+
+    ${mq({
+        padding: smallest(['2rem', '2rem', '2.5rem']),
+    })}
 
     &:hover {
       transform: scale(1.03) translateY(-1.5rem);
@@ -54,5 +58,9 @@ const styles = {
     color: transparent;
     display: inline-block;
     font-size: 6rem;
+
+    ${mq({
+       marginBottom: smallest(['0', '0', '.5rem']),
+    })}
   `,
 };

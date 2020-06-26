@@ -2,7 +2,7 @@
 import { css, jsx } from '@emotion/core';
 
 import { colors } from '../res/colors';
-import { row, oneOf } from '../res/styles';
+import { mq, oneOf, row, smallest } from '../res/styles';
 import { rgba } from '../utils/rgba';
 import { ButtonText } from './ButtonText';
 import { Composition } from './Composition';
@@ -40,8 +40,11 @@ export const About = () => (
 const styles = {
   about: css`
     background-color: ${colors.grayLight1};
-    padding: 25vh 0;
     margin-top: -20vh;
+
+    ${mq({
+      padding: smallest(['22rem 0', '22rem 0', '27rem 0']),
+    })}
   `,
   center: css`
     text-align: center;

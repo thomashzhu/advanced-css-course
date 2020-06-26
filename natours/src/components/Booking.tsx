@@ -3,7 +3,7 @@ import { jsx, css } from '@emotion/core'
 import React from 'react';
 
 import { colors } from '../res/colors';
-import { row } from '../res/styles';
+import { mq, row, smallest } from '../res/styles';
 import { rgba } from '../utils/rgba';
 import { BookingForm } from './BookingForm';
 
@@ -24,7 +24,10 @@ const styles = {
       ${colors.greenLight},
       ${colors.greenDark}
     );
-    padding: 15rem 0;
+
+    ${mq({
+      padding: smallest(['10rem 0', '10rem 0', '15rem 0']),
+    })}
   `,
   content: css`
     background-image:

@@ -2,7 +2,7 @@
 import { jsx, css } from '@emotion/core'
 import React from 'react';
 
-import { centerText, marginTop, row } from '../res/styles';
+import { centerText, marginTop, row, mq, smallest } from '../res/styles';
 import { ButtonText } from './ButtonText';
 import { HeadingSecondary } from './HeadingSecondary';
 import { Story } from './Story';
@@ -56,7 +56,10 @@ export const Stories: React.FC = () => (
 
 const styles = {
   container: css`
-    padding: 15rem 0;
     position: relative;
+
+    ${mq({
+      padding: smallest(['10rem 0', '10rem 0', '15rem 0']),
+    })}
   `,
 };

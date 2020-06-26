@@ -20,11 +20,15 @@ export const center = css`
 `;
 
 export const marginBottom = (size: number) => css`
-  margin-bottom: ${size}rem;
+  ${mq({
+    marginBottom: smallest([`${size / 8 * 5}rem`, `${size / 8 * 5}rem`, `${size}rem`]),
+  })}
 `;
 
 export const marginTop = (size: number) => css`
-  margin-top: ${size}rem;
+  ${mq({
+    marginTop: smallest([`${size / 8 * 5}rem`, `${size / 8 * 5}rem`, `${size}rem`]),
+  })}
 `;
 
 /**
@@ -34,20 +38,35 @@ export const marginTop = (size: number) => css`
  * 1200 - 1800px :     Normal
  * 1800+px       :     Big desktop
  */
-const breakpoints = {
-  'min-width': [1800], // in px,  from lowest to highest
-  'max-width': [1200, 900, 600], // in px, from highest to lowest
-}
+export const breakpoints = {
+  phone: {
+    mq: `@media (max-width: ${600 / 16}em)`,
+    width: 600,
+  },
+  tabletPortrait: {
+    mq: `@media (max-width: ${900 / 16}em)`,
+    width: 900,
+  },
+  tabletLandscape: {
+    mq: `@media (max-width: ${1200 / 16}em)`,
+    width: 1200,
+  },
+  bigDesktop: {
+    mq: `@media (min-width: ${1800 / 16}em)`,
+    width: 1800,
+  },
+};
+
 export const mq = facepaint([
-  ...breakpoints['min-width']
-    .map(bp => `@media (min-width: ${bp / 16}em)`),
-  ...breakpoints['max-width']
-    .map(bp => `@media (max-width: ${bp / 16}em)`),
+  ...[breakpoints.bigDesktop]
+    .map(({ width }) => `@media (min-width: ${width / 16}em)`),
+  ...[breakpoints.tabletLandscape, breakpoints.tabletPortrait, breakpoints.phone]
+    .map(({ width }) => `@media (max-width: ${width / 16}em)`),
 ]);
 
 const getSortedBreakpoints = (order: 'smallest' | 'largest') => (values: any[]) => {
   const defaultValue = values[values.length - 1];
-  const length = breakpoints["min-width"].length + breakpoints["max-width"].length
+  const length = Object.entries(breakpoints).length
   const restValues = Array(length - values.length).fill(defaultValue)
 
   if (order === 'smallest') {

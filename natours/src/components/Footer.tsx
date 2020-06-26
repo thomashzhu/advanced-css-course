@@ -3,7 +3,7 @@ import { jsx, css } from '@emotion/core'
 import React from 'react';
 
 import { colors } from '../res/colors';
-import { row, oneOf, mq, smallest } from '../res/styles';
+import { mq, oneOf, row, smallest } from '../res/styles';
 import { rgba } from '../utils/rgba';
 
 const Link: React.FC = ({ children }) => (
@@ -110,8 +110,11 @@ const styles = {
     width: 15rem;
   `,
   logoContainer: css`
-    margin-bottom: 8rem;
     text-align: center;
+
+    ${mq({
+      marginBottom: smallest(['6rem', '6rem', '8rem']),
+    })}
   `,
   navigation: css`
     border-top: 1px solid ${colors.grayDark1};

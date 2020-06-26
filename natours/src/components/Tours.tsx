@@ -2,7 +2,7 @@
 import { jsx, css } from '@emotion/core'
 import React from 'react';
 
-import { centerText, marginTop, oneOf, row } from '../res/styles';
+import { centerText, marginTop, oneOf, row, mq, smallest } from '../res/styles';
 import { colors } from '../res/colors';
 import { AnchorButton } from './Buttons';
 import { HeadingSecondary } from './HeadingSecondary';
@@ -83,6 +83,9 @@ const styles = {
   container: css`
     background-color: ${colors.grayLight1};
     margin-top: -16rem;
-    padding: 40rem 0 15rem 0;
+
+    ${mq({
+      padding: smallest(['27rem 0 10rem 0', '27rem 0 10rem 0', '32rem 0 15rem 0']),
+    })}
   `,
 };

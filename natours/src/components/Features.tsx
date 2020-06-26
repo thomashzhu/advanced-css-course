@@ -3,7 +3,7 @@ import { jsx, css } from '@emotion/core'
 import React from 'react';
 
 import { colors } from '../res/colors';
-import { row, oneOf } from '../res/styles';
+import { mq, oneOf, row, smallest } from '../res/styles';
 import { rgba } from '../utils/rgba';
 import { FeatureCard } from './FeatureCard';
 
@@ -54,8 +54,11 @@ const styles = {
       url(${require('../assets/nat-4.jpg')});
     background-size: cover;
     margin-top: -15rem;
-    padding: 20rem 0;
     transform: skewY(-${SKEW_DEGREE}deg);
+
+    ${mq({
+      padding: smallest(['10rem 0', '10rem 0', '20rem 0']),
+    })}
 
     & > * {
       transform: skewY(${SKEW_DEGREE}deg);

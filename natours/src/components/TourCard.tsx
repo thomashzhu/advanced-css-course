@@ -5,7 +5,7 @@ import React from 'react';
 import { colors } from '../res/colors';
 import { rgba } from '../utils/rgba';
 import { AnchorButton } from './Buttons';
-import { center, centerText } from '../res/styles';
+import { breakpoints, center, centerText } from '../res/styles';
 
 interface Props {
   backgroundImage: string;
@@ -21,7 +21,7 @@ export const TourCard: React.FC<Props> = (props) => {
   const { heading, items, price, style } = props;
 
   return (
-    <div css={[styles.container(props), style]}>
+    <div css={[styles.container(props), styles.containerMQ, style]}>
       <div className="side side--front">
         <div css={styles.picture(props)}>
           &nbsp;
@@ -74,6 +74,15 @@ const styles = {
     ${centerText};
 
     width: 90%;
+
+    ${breakpoints.tabletPortrait.mq} {
+      left: 0;
+      padding: 7rem 4rem 4rem 4rem;
+      position: relative;
+      top: 0;
+      transform: translate(0);
+      width: 100%;
+    }
   `,
   container: (props: Props) => css`
     -moz-perspective: 1500rem;
@@ -118,7 +127,36 @@ const styles = {
       }
     }
   `,
+  containerMQ: css`
+    ${breakpoints.tabletPortrait.mq} {
+      background-color: white;
+      border-radius: 3px;
+      box-shadow: 0 1.5rem 4rem ${rgba(colors.black, 0.15)};
+      height: auto;
+
+      .side {
+        box-shadow: none;
+        height: auto;
+        position: relative;
+
+        &--back {
+          clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+          transform: rotateY(0);
+        }
+      }
+
+      &:hover {
+        .side--front {
+          transform: rotateY(0);
+        }
+      }
+    }
+  `,
   details: css`
+    ${breakpoints.tabletPortrait.mq} {
+      padding: 0 1rem;
+    }
+
     ul {
       list-style: none;
       margin: 0 auto;
@@ -173,8 +211,12 @@ const styles = {
   `,
   price: css`
     color: ${colors.white};
-    text-align: center;
     margin-bottom: 8rem;
+    text-align: center;
+
+    ${breakpoints.tabletPortrait.mq} {
+      margin-bottom: 3rem;
+    }
 
     .price--text {
       font-size: 1.4rem;
@@ -184,6 +226,10 @@ const styles = {
     .price--value {
       font-size: 6rem;
       font-weight: 100;
+
+      ${breakpoints.tabletPortrait.mq} {
+        font-size: 4rem;
+      }
     }
   `,
 };

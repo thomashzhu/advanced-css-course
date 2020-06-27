@@ -3,7 +3,7 @@ import { jsx, css } from '@emotion/core'
 import React from 'react';
 
 import { colors } from '../res/colors';
-import { center, defaultFontSize } from '../res/styles';
+import { breakpoints, center, defaultFontSize } from '../res/styles';
 
 interface Props extends React.HTMLProps<HTMLInputElement> {
   id: string;
@@ -34,6 +34,11 @@ const styles = {
   container: css`
     display: inline-block;
     width: 45%;
+
+    ${breakpoints.tabletPortrait.mq} {
+      margin-bottom: 2rem;
+      width: 100%;
+    }
 
     input:checked ~ label span::after {
       opacity: 1;

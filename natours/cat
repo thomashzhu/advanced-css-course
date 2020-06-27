@@ -1,0 +1,368 @@
+commit 6b0745503d775ae4e0bc427ac44019f6eda14881
+Author: thomas <dev@thomaszhu.com>
+Date:   Thu Jun 25 18:01:50 2020 -0700
+
+    [natours] Add media queries
+---
+ natours/src/components/About.tsx       |  7 +++--
+ natours/src/components/Booking.tsx     |  7 +++--
+ natours/src/components/Composition.tsx | 47 +++++++++++++++++++++++++++++-----
+ natours/src/components/FeatureCard.tsx | 10 +++++++-
+ natours/src/components/Features.tsx    |  7 +++--
+ natours/src/components/Footer.tsx      |  7 +++--
+ natours/src/components/Stories.tsx     |  7 +++--
+ natours/src/components/Tours.tsx       |  7 +++--
+ natours/src/res/styles.ts              | 41 +++++++++++++++++++++--------
+ 9 files changed, 110 insertions(+), 30 deletions(-)
+
+diff --git a/natours/src/components/About.tsx b/natours/src/components/About.tsx
+index adbc043..5cd5814 100644
+--- a/natours/src/components/About.tsx
++++ b/natours/src/components/About.tsx
+@@ -2,7 +2,7 @@
+ import { css, jsx } from '@emotion/core';
+ 
+ import { colors } from '../res/colors';
+-import { row, oneOf } from '../res/styles';
++import { mq, oneOf, row, smallest } from '../res/styles';
+ import { rgba } from '../utils/rgba';
+ import { ButtonText } from './ButtonText';
+ import { Composition } from './Composition';
+@@ -40,8 +40,11 @@ export const About = () => (
+ const styles = {
+   about: css`
+     background-color: ${colors.grayLight1};
+-    padding: 25vh 0;
+     margin-top: -20vh;
++
++    ${mq({
++      padding: smallest(['22rem 0', '22rem 0', '27rem 0']),
++    })}
+   `,
+   center: css`
+     text-align: center;
+diff --git a/natours/src/components/Booking.tsx b/natours/src/components/Booking.tsx
+index 634bc8e..20a98c3 100644
+--- a/natours/src/components/Booking.tsx
++++ b/natours/src/components/Booking.tsx
+@@ -3,7 +3,7 @@ import { jsx, css } from '@emotion/core'
+ import React from 'react';
+ 
+ import { colors } from '../res/colors';
+-import { row } from '../res/styles';
++import { mq, row, smallest } from '../res/styles';
+ import { rgba } from '../utils/rgba';
+ import { BookingForm } from './BookingForm';
+ 
+@@ -24,7 +24,10 @@ const styles = {
+       ${colors.greenLight},
+       ${colors.greenDark}
+     );
+-    padding: 15rem 0;
++
++    ${mq({
++      padding: smallest(['10rem 0', '10rem 0', '15rem 0']),
++    })}
+   `,
+   content: css`
+     background-image:
+diff --git a/natours/src/components/Composition.tsx b/natours/src/components/Composition.tsx
+index f381efe..6f8f5f0 100644
+--- a/natours/src/components/Composition.tsx
++++ b/natours/src/components/Composition.tsx
+@@ -3,6 +3,7 @@ import { jsx, css } from '@emotion/core'
+ import React from 'react';
+ 
+ import { colors } from '../res/colors';
++import { breakpoints } from '../res/styles';
+ import { rgba } from '../utils/rgba';
+ 
+ interface Position {
+@@ -16,19 +17,19 @@ export const Composition: React.FC = () => (
+   <div css={styles.container}>
+     <img
+       alt="Pic 1"
+-      css={styles.photo({ left: 0, top: '-2rem' })}
++      css={[styles.photo, styles.photo1]}
+       src={require('../assets/nat-1-large.jpg')}
+     />
+ 
+     <img
+       alt="Pic 2"
+-      css={styles.photo({ right: 0, top: '2rem' })}
++      css={[styles.photo, styles.photo2]}
+       src={require('../assets/nat-2-large.jpg')}
+     />
+ 
+     <img
+       alt="Pic 3"
+-      css={styles.photo({ left: '20%', top: '10rem' })}
++      css={[styles.photo, styles.photo3]}
+       src={require('../assets/nat-3-large.jpg')}
+     />
+   </div>
+@@ -42,9 +43,7 @@ const styles = {
+       transform: scale(.95);
+     }
+   `,
+-  photo: (position: Partial<Position>) => css`
+-    ${position};
+-
++  photo: css`
+     border-radius: 2px;
+     box-shadow: 0 1.5rem 4rem ${rgba(colors.black, 0.4)};
+     outline-offset: 2rem;
+@@ -53,6 +52,13 @@ const styles = {
+     width: 55%;
+     z-index: 10;
+ 
++    ${breakpoints.tabletPortrait.mq} {
++      box-shadow: 0 1.5rem 3rem ${rgba(colors.black, 0.2)};
++      float: left;
++      position: relative;
++      width: ${100 / 3}%;
++    }
++
+     &:hover {
+       box-shadow: 0 2.5rem 4rem ${rgba(colors.black, 0.5)};
+       outline: 1.5rem solid ${colors.greenMedium};
+@@ -60,4 +66,33 @@ const styles = {
+       z-index: 20;
+     }
+   `,
++  photo1: css`
++    left: 0;
++    top: -2rem;
++
++    ${breakpoints.tabletPortrait.mq} {
++      top: 0;
++      transform: scale(1.2);
++    }
++  `,
++  photo2: css`
++    top: 2rem;
++    right: 0;
++
++    ${breakpoints.tabletPortrait.mq} {
++      top: -1rem;
++      transform: scale(1.3);
++      z-index: 100;
++    }
++  `,
++  photo3: css`
++    left: 20%;
++    top: 10rem;
++
++    ${breakpoints.tabletPortrait.mq} {
++      left: 0;
++      top: 1rem;
++      transform: scale(1.1);
++    }
++  `,
+ };
+diff --git a/natours/src/components/FeatureCard.tsx b/natours/src/components/FeatureCard.tsx
+index b594e77..97d7383 100644
+--- a/natours/src/components/FeatureCard.tsx
++++ b/natours/src/components/FeatureCard.tsx
+@@ -3,6 +3,7 @@ import { jsx, css, SerializedStyles } from '@emotion/core'
+ import React from 'react';
+ 
+ import { colors } from '../res/colors';
++import { mq, smallest } from '../res/styles';
+ import { rgba } from '../utils/rgba';
+ import { HeadingTertiary } from './HeadingTertiary';
+ 
+@@ -35,10 +36,13 @@ const styles = {
+     border-radius: 3px;
+     box-shadow: 0 1.5rem 4rem ${rgba(colors.black, 0.15)};
+     font-size: 1.5rem;
+-    padding: 2.5rem;
+     text-align: center;
+     transition: transform .3s;
+ 
++    ${mq({
++        padding: smallest(['2rem', '2rem', '2.5rem']),
++    })}
++
+     &:hover {
+       transform: scale(1.03) translateY(-1.5rem);
+     }
+@@ -54,5 +58,9 @@ const styles = {
+     color: transparent;
+     display: inline-block;
+     font-size: 6rem;
++
++    ${mq({
++       marginBottom: smallest(['0', '0', '.5rem']),
++    })}
+   `,
+ };
+diff --git a/natours/src/components/Features.tsx b/natours/src/components/Features.tsx
+index dbaa5d1..d30375a 100644
+--- a/natours/src/components/Features.tsx
++++ b/natours/src/components/Features.tsx
+@@ -3,7 +3,7 @@ import { jsx, css } from '@emotion/core'
+ import React from 'react';
+ 
+ import { colors } from '../res/colors';
+-import { row, oneOf } from '../res/styles';
++import { mq, oneOf, row, smallest } from '../res/styles';
+ import { rgba } from '../utils/rgba';
+ import { FeatureCard } from './FeatureCard';
+ 
+@@ -54,9 +54,12 @@ const styles = {
+       url(${require('../assets/nat-4.jpg')});
+     background-size: cover;
+     margin-top: -15rem;
+-    padding: 20rem 0;
+     transform: skewY(-${SKEW_DEGREE}deg);
+ 
++    ${mq({
++      padding: smallest(['10rem 0', '10rem 0', '20rem 0']),
++    })}
++
+     & > * {
+       transform: skewY(${SKEW_DEGREE}deg);
+     }
+diff --git a/natours/src/components/Footer.tsx b/natours/src/components/Footer.tsx
+index 9fbddcf..4ba8454 100644
+--- a/natours/src/components/Footer.tsx
++++ b/natours/src/components/Footer.tsx
+@@ -3,7 +3,7 @@ import { jsx, css } from '@emotion/core'
+ import React from 'react';
+ 
+ import { colors } from '../res/colors';
+-import { row, oneOf, mq, smallest } from '../res/styles';
++import { mq, oneOf, row, smallest } from '../res/styles';
+ import { rgba } from '../utils/rgba';
+ 
+ const Link: React.FC = ({ children }) => (
+@@ -110,8 +110,11 @@ const styles = {
+     width: 15rem;
+   `,
+   logoContainer: css`
+-    margin-bottom: 8rem;
+     text-align: center;
++
++    ${mq({
++      marginBottom: smallest(['6rem', '6rem', '8rem']),
++    })}
+   `,
+   navigation: css`
+     border-top: 1px solid ${colors.grayDark1};
+diff --git a/natours/src/components/Stories.tsx b/natours/src/components/Stories.tsx
+index d4e08c8..a14cbf5 100644
+--- a/natours/src/components/Stories.tsx
++++ b/natours/src/components/Stories.tsx
+@@ -2,7 +2,7 @@
+ import { jsx, css } from '@emotion/core'
+ import React from 'react';
+ 
+-import { centerText, marginTop, row } from '../res/styles';
++import { centerText, marginTop, row, mq, smallest } from '../res/styles';
+ import { ButtonText } from './ButtonText';
+ import { HeadingSecondary } from './HeadingSecondary';
+ import { Story } from './Story';
+@@ -56,7 +56,10 @@ export const Stories: React.FC = () => (
+ 
+ const styles = {
+   container: css`
+-    padding: 15rem 0;
+     position: relative;
++
++    ${mq({
++      padding: smallest(['10rem 0', '10rem 0', '15rem 0']),
++    })}
+   `,
+ };
+diff --git a/natours/src/components/Tours.tsx b/natours/src/components/Tours.tsx
+index 7b38f36..fc24837 100644
+--- a/natours/src/components/Tours.tsx
++++ b/natours/src/components/Tours.tsx
+@@ -2,7 +2,7 @@
+ import { jsx, css } from '@emotion/core'
+ import React from 'react';
+ 
+-import { centerText, marginTop, oneOf, row } from '../res/styles';
++import { centerText, marginTop, oneOf, row, mq, smallest } from '../res/styles';
+ import { colors } from '../res/colors';
+ import { AnchorButton } from './Buttons';
+ import { HeadingSecondary } from './HeadingSecondary';
+@@ -83,6 +83,9 @@ const styles = {
+   container: css`
+     background-color: ${colors.grayLight1};
+     margin-top: -16rem;
+-    padding: 40rem 0 15rem 0;
++
++    ${mq({
++      padding: smallest(['27rem 0 10rem 0', '27rem 0 10rem 0', '32rem 0 15rem 0']),
++    })}
+   `,
+ };
+diff --git a/natours/src/res/styles.ts b/natours/src/res/styles.ts
+index 5204649..bdd9a97 100644
+--- a/natours/src/res/styles.ts
++++ b/natours/src/res/styles.ts
+@@ -20,11 +20,15 @@ export const center = css`
+ `;
+ 
+ export const marginBottom = (size: number) => css`
+-  margin-bottom: ${size}rem;
++  ${mq({
++    marginBottom: smallest([`${size / 8 * 5}rem`, `${size / 8 * 5}rem`, `${size}rem`]),
++  })}
+ `;
+ 
+ export const marginTop = (size: number) => css`
+-  margin-top: ${size}rem;
++  ${mq({
++    marginTop: smallest([`${size / 8 * 5}rem`, `${size / 8 * 5}rem`, `${size}rem`]),
++  })}
+ `;
+ 
+ /**
+@@ -34,20 +38,35 @@ export const marginTop = (size: number) => css`
+  * 1200 - 1800px :     Normal
+  * 1800+px       :     Big desktop
+  */
+-const breakpoints = {
+-  'min-width': [1800], // in px,  from lowest to highest
+-  'max-width': [1200, 900, 600], // in px, from highest to lowest
+-}
++export const breakpoints = {
++  phone: {
++    mq: `@media (max-width: ${600 / 16}em)`,
++    width: 600,
++  },
++  tabletPortrait: {
++    mq: `@media (max-width: ${900 / 16}em)`,
++    width: 900,
++  },
++  tabletLandscape: {
++    mq: `@media (max-width: ${1200 / 16}em)`,
++    width: 1200,
++  },
++  bigDesktop: {
++    mq: `@media (min-width: ${1800 / 16}em)`,
++    width: 1800,
++  },
++};
++
+ export const mq = facepaint([
+-  ...breakpoints['min-width']
+-    .map(bp => `@media (min-width: ${bp / 16}em)`),
+-  ...breakpoints['max-width']
+-    .map(bp => `@media (max-width: ${bp / 16}em)`),
++  ...[breakpoints.bigDesktop]
++    .map(({ width }) => `@media (min-width: ${width / 16}em)`),
++  ...[breakpoints.tabletLandscape, breakpoints.tabletPortrait, breakpoints.phone]
++    .map(({ width }) => `@media (max-width: ${width / 16}em)`),
+ ]);
+ 
+ const getSortedBreakpoints = (order: 'smallest' | 'largest') => (values: any[]) => {
+   const defaultValue = values[values.length - 1];
+-  const length = breakpoints["min-width"].length + breakpoints["max-width"].length
++  const length = Object.entries(breakpoints).length
+   const restValues = Array(length - values.length).fill(defaultValue)
+ 
+   if (order === 'smallest') {

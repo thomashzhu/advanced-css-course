@@ -3,7 +3,7 @@ import { jsx, css } from '@emotion/core'
 import React from 'react';
 
 import { colors } from '../res/colors';
-import { mq, row, smallest } from '../res/styles';
+import { breakpoints, mq, row, smallest } from '../res/styles';
 import { rgba } from '../utils/rgba';
 import { BookingForm } from './BookingForm';
 
@@ -38,7 +38,29 @@ const styles = {
         transparent 50%
       ),
       url(${require('../assets/nat-10.jpg')});
-    background-size: 100%;
-    height: 50rem;
+    background-size: cover;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem ${rgba(colors.black, 0.2)};
+
+    ${breakpoints.tabletLandscape.mq} {
+      background-image:
+        linear-gradient(
+          105deg,
+          ${rgba(colors.white, 0.9)} 0%,
+          ${rgba(colors.white, 0.9)} 65%,
+          transparent 65%
+        ),
+        url(${require('../assets/nat-10.jpg')});
+    }
+
+    ${breakpoints.tabletPortrait.mq} {
+      background-image:
+        linear-gradient(
+          to right,
+          ${rgba(colors.white, 0.9)} 0%,
+          ${rgba(colors.white, 0.9)} 100%
+        ),
+        url(${require('../assets/nat-10.jpg')});
+    }
   `,
 };

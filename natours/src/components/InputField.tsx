@@ -3,6 +3,7 @@ import { jsx, css } from '@emotion/core'
 import React from 'react';
 
 import { colors } from '../res/colors';
+import { breakpoints } from '../res/styles';
 import { rgba } from '../utils/rgba';
 
 interface Props extends React.HTMLProps<HTMLInputElement> {
@@ -52,6 +53,11 @@ const styles = {
     padding: 1.5rem 2rem;
     transition: all .3s;
     width: 90%;
+
+
+    ${breakpoints.tabletPortrait.mq} {
+      width: 100%;
+    }
 
     &:focus {
       box-shadow: 0 1rem 2rem ${rgba(colors.black, 0.1)};

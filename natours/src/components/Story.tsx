@@ -4,7 +4,7 @@ import React from 'react';
 
 import { colors } from '../res/colors';
 import { rgba } from '../utils/rgba';
-import { center, defaultFontSize } from '../res/styles';
+import { center, defaultFontSize, mq, smallest } from '../res/styles';
 import { HeadingTertiary } from './HeadingTertiary';
 
 interface Props {
@@ -60,12 +60,19 @@ const styles = {
     box-shadow: 0 3rem 6rem ${rgba(colors.black, 0.1)};
     font-size: ${defaultFontSize};
     margin: 0 auto;
-    padding: 6rem 6rem 6rem 9rem;
-    transform: skewX(-12deg);
-    width: 75%;
+
+    ${mq({
+      padding: smallest(['4rem 4rem 4rem 7rem', '4rem 4rem 4rem 7rem', '6rem 6rem 6rem 9rem']),
+      transform: smallest(['initial', 'skewX(-12deg)']),
+      width: smallest(['100%', '100%', '75%']),
+    })}
 
     & > * {
       transform: skewX(12deg);
+
+      ${mq({
+        transform: smallest(['initial']),
+      })}
     }
 
     &:hover {
@@ -95,8 +102,11 @@ const styles = {
     overflow: hidden;
     position: relative;
     shape-outside: circle(50% at 50% 50%);
-    transform: skewX(12deg) translateX(-3rem);
     width: 15rem;
+
+    ${mq({
+      transform: smallest(['skewX(0deg) translateX(-3rem)', 'skewX(12deg) translateX(-3rem)']),
+    })}
   `,
   text: css`
     

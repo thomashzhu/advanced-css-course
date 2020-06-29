@@ -6,31 +6,51 @@ import { colors } from '../res/colors';
 import { breakpoints } from '../res/styles';
 import { rgba } from '../utils/rgba';
 
-interface Position {
-  bottom: number | string;
-  left: number | string;
-  right: number | string;
-  top: number | string;
-}
-
 export const Composition: React.FC = () => (
   <div css={styles.container}>
     <img
       alt="Pic 1"
       css={[styles.photo, styles.photo1]}
+      sizes={`
+        (max-width: 56.25em) 20vw,
+        (max-width: 37.5em) 30vw,
+        356.39px
+      `}
       src={require('../assets/nat-1-large.jpg')}
+      srcSet={`
+        ${require('../assets/nat-1.jpg')} 300w,
+        ${require('../assets/nat-1-large.jpg')} 1000w
+      `}
     />
 
     <img
       alt="Pic 2"
       css={[styles.photo, styles.photo2]}
+      sizes={`
+        (max-width: 56.25em) 20vw,
+        (max-width: 37.5em) 30vw,
+        356.39px
+      `}
       src={require('../assets/nat-2-large.jpg')}
+      srcSet={`
+        ${require('../assets/nat-2.jpg')} 300w,
+        ${require('../assets/nat-2-large.jpg')} 1000w
+      `}
     />
 
     <img
       alt="Pic 3"
       css={[styles.photo, styles.photo3]}
+      sizes={`
+        (max-width: 56.25em) 20vw,
+        (max-width: 37.5em) 30vw,
+        356.39px
+      `}
       src={require('../assets/nat-3-large.jpg')}
+      srcSet={`
+        ${require('../assets/nat-3.jpg')} 300w,
+        ${require('../assets/nat-3-large.jpg')} 1000w
+      `}
     />
   </div>
 );

@@ -18,11 +18,24 @@ const Link: React.FC = ({ children }) => (
 export const Footer: React.FC = () => (
   <footer css={styles.container}>
     <div css={styles.logoContainer}>
-      <img
-        alt="Full logo"
-        css={styles.logo}
-        src={require('../assets/logo-green-2x.png')}
-      />
+      <picture>
+        <source
+          media="(max-width: 37.5em)"
+          srcSet={`
+            ${require('../assets/logo-green-small-1x.png')} 1x,
+            ${require('../assets/logo-green-small-2x.png')} 2x
+          `}
+        />
+        <img
+          alt="Full logo"
+          css={styles.logo}
+          src={require('../assets/logo-green-2x.png')}
+          srcSet={`
+            ${require('../assets/logo-green-1x.png')} 1x,
+            ${require('../assets/logo-green-2x.png')} 2x
+          `}
+        />
+      </picture>
     </div>
 
     <div css={row}>
